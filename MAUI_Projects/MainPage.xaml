@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MAUI_Projects.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="CenterAndExpand">
+            <Image
+                Margin="0"
+                HeightRequest="115"
+                Source="logo_green.png"
+                WidthRequest="75" />
+            <Label
+                x:Name="NameApp"
+                Margin="0,20,0,150"
+                HorizontalOptions="Center"
+                Text="Número da sorte"
+                TextColor="#00AB37"
+                VerticalOptions="Center" />
+
+            <VerticalStackLayout x:Name="ContainerLuckyNumbers" IsVisible="False">
+                <Label
+                    Margin="0,20,0,0"
+                    HorizontalOptions="Center"
+                    Text="O número da sorte é" />
+
+                <HorizontalStackLayout
+                    Margin="0,70"
+                    HorizontalOptions="Center"
+                    Spacing="5">
+                    <Border
+                        Padding="10,5"
+                        Stroke="#00AB37"
+                        StrokeShape="RoundRectangle 8">
+                        <Label
+                            x:Name="LuckyNumber01"
+                            FontSize="24"
+                            Text=""
+                            TextColor="#00AB37" />
+                    </Border>
+
+                    <Border
+                        Padding="10,5"
+                        Stroke="#00AB37"
+                        StrokeShape="RoundRectangle 8">
+                        <Label
+                            x:Name="LuckyNumber02"
+                            FontSize="24"
+                            Text=""
+                            TextColor="#00AB37" />
+                    </Border>
+
+                    <Border
+                        Padding="10,5"
+                        Stroke="#00AB37"
+                        StrokeShape="RoundRectangle 8">
+                        <Label
+                            x:Name="LuckyNumber03"
+                            FontSize="24"
+                            Text=""
+                            TextColor="#00AB37" />
+                    </Border>
+
+                    <Border
+                        Padding="10,5"
+                        Stroke="#00AB37"
+                        StrokeShape="RoundRectangle 8">
+                        <Label
+                            x:Name="LuckyNumber04"
+                            FontSize="24"
+                            Text=""
+                            TextColor="#00AB37" />
+                    </Border>
+
+                    <Border
+                        Padding="10,5"
+                        Stroke="#00AB37"
+                        StrokeShape="RoundRectangle 8">
+                        <Label
+                            x:Name="LuckyNumber05"
+                            FontSize="24"
+                            Text=""
+                            TextColor="#00AB37" />
+                    </Border>
+
+                    <Border
+                        Padding="10,5"
+                        Stroke="#00AB37"
+                        StrokeShape="RoundRectangle 8">
+                        <Label
+                            x:Name="LuckyNumber06"
+                            FontSize="24"
+                            Text=""
+                            TextColor="#00AB37" />
+                    </Border>
+                </HorizontalStackLayout>
+
+                <Label
+                    Margin="0,0,0,50"
+                    HorizontalOptions="Center"
+                    Text="Boa sorte!" />
+            </VerticalStackLayout>
+
+            <Button
+                Clicked="OnGenerateLuckyNumbers"
+                HorizontalOptions="Center"
+                Text="Gerar número da sorte" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
