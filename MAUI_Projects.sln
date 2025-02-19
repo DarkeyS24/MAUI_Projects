@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAUI_Projects", "MAUI_Projects\MAUI_Projects.csproj", "{32EBC838-D9A7-46E2-B490-2527070EF720}"
 EndProject
@@ -13,6 +13,7 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{32EBC838-D9A7-46E2-B490-2527070EF720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32EBC838-D9A7-46E2-B490-2527070EF720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32EBC838-D9A7-46E2-B490-2527070EF720}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{32EBC838-D9A7-46E2-B490-2527070EF720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32EBC838-D9A7-46E2-B490-2527070EF720}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
