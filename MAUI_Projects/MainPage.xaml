@@ -10,7 +10,7 @@
                 Margin="0"
                 HeightRequest="115"
                 Source="logo_green.png"
-                WidthRequest="75" />
+                WidthRequest="100" />
             <Label
                 x:Name="NameApp"
                 Margin="0,20,0,150"
