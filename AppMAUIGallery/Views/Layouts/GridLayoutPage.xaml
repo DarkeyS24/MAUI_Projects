@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Layouts.GridLayoutPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="GridLayoutPage">
+    <Grid
+        Margin="20"
+        BackgroundColor="AliceBlue"
+        ColumnDefinitions="100, Auto, *, *"
+        ColumnSpacing="1"
+        RowDefinitions="50, 100, 10"
+        RowSpacing="1">
+
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>-->
+
+        <BoxView Color="MediumAquamarine" />
+        <Label Text="Olá mundo" />
+
+        <BoxView
+            Grid.Column="1"
+            WidthRequest="50"
+            Color="ForestGreen" />
+
+        <BoxView
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            Color="DarkGreen" />
+
+        <Label
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Center"
+            Text="Olá mundo!"
+            TextColor="White"
+            VerticalOptions="Center" />
+
+        <BoxView Grid.Row="1" Color="Orange" />
+
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="1"
+            Color="Red" />
+
+        <BoxView
+            Grid.Row="2"
+            Grid.ColumnSpan="4"
+            Color="Black" />
+    </Grid>
+</ContentPage>
