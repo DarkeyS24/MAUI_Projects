@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMAUIGallery.Views.Components.Mains.ImageButtonPage"
-             Title="ImageButtonPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Components.Mains.ImageButtonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ImageButtonPage">
+    <AbsoluteLayout>
+        <Label
+            x:Name="lblState"
+            Padding="10"
+            AbsoluteLayout.LayoutBounds="0.5, 0.2"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            FontAttributes="Bold"
+            FontSize="32" />
+
+        <ImageButton
+            x:Name="imageBtn"
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, 400, 400"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            BackgroundColor="Transparent"
+            Clicked="ImageButton_Clicked"
+            Source="poweroff.png" />
+    </AbsoluteLayout>
 </ContentPage>

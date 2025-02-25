@@ -13,14 +13,13 @@ namespace AppMAUIGallery.Repositories
     {
         public CategoryRepository() { }
 
-        public static List<Category> GetCategories()
+        public List<Category> GetCategories()
         {
             List<Category> categories = new List<Category>();
-            categories.Add(
-                new Category
-                {
-                    Name = "Layout",
-                    Components =
+            categories.Add(new Category
+            {
+                Name = "Layout",
+                Components = new List<Component>
                 {
                      new Component
                      {
@@ -47,17 +46,16 @@ namespace AppMAUIGallery.Repositories
                          Page = typeof(FlexLayoutPage)
                      }
                 }
-                }); 
-            categories.Add(
-               new Category()
-               {
-                   Name = "Componentes (Views)",
-                   Components =
-                   {
+            });
+            categories.Add(new Category()
+            {
+                Name = "Componentes (Views)",
+                Components = new List<Component>
+                {
                     new Component
                     {
                         Name="BoxView",
-                        Description="Um componente que cria uma caixa para ser apresentada na tela.",
+                        Description="Um componente que cria uma caixa para ser apresentada.",
                         Page=typeof(BoxViewPage)
                     },
                     new Component
@@ -80,13 +78,13 @@ namespace AppMAUIGallery.Repositories
                     },
                     new Component
                     {
-                        Name="ImageButton",
-                        Description="Apresenta uma imagem com comportamento de botão na tela.",
-                        Page=typeof(ImageButtonPage)
+                         Name="ImageButton",
+                         Description="Apresenta uma imagem com comportamento de botão na tela.",
+                         Page=typeof(ImageButtonPage)
                     }
                 }
             });
-            return categories; 
+            return categories;
         }
     }
 }
