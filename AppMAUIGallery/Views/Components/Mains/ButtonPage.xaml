@@ -8,13 +8,39 @@
         <Button
             x:Name="mainBtn"
             BackgroundColor="White"
-            BorderColor="Red"
+            BorderColor="LightBlue"
             BorderWidth="2"
+            Clicked="Button_Clicked"
             CornerRadius="22"
+            FontAttributes="Bold"
             HorizontalOptions="Center"
             Pressed="Button_Pressed"
             Released="Button_Released"
             Text="Clique-me"
-            TextColor="Black" />
+            TextColor="Black" 
+            ImageSource="dotnet_bot.png"
+            HeightRequest="60"
+            WidthRequest="180"
+            ContentLayout="left,0"/>
+
+        <Frame
+            Margin="20"
+            BackgroundColor="#FFADD8E6"
+            CornerRadius="20"
+            HeightRequest="300"
+            HorizontalOptions="Center"
+            WidthRequest="350">
+            <ScrollView>
+                <VerticalStackLayout>
+                    <Label
+                        x:Name="lblLog"
+                        Padding="20,10,20,10"
+                        FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+
+
+
     </VerticalStackLayout>
 </ContentPage>

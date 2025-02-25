@@ -1,7 +1,4 @@
-using Org.Apache.Http.Client;
-using Microsoft.Maui.Graphics;
 namespace AppMAUIGallery.Views.Components.Mains;
-
 
 public partial class ButtonPage : ContentPage
 {
@@ -12,11 +9,18 @@ public partial class ButtonPage : ContentPage
 
     private void Button_Pressed(object sender, EventArgs e)
     {
-        mainBtn.BackgroundColor = new Color.FromArgb("#FF0000");
+        mainBtn.BackgroundColor = Color.FromArgb("#FFF0F8FF");
+        lblLog.Text += $"Pressionado no {DateTime.Now}";
     }
 
     private void Button_Released(object sender, EventArgs e)
     {
-        mainBtn.BackgroundColor = new Color.FromArgb("#FFFFFF");
+        mainBtn.BackgroundColor = Color.FromArgb("#FFFFFF");
+        lblLog.Text += $"\nLiberado no {DateTime.Now}\n";
+    }
+
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+        lblLog.Text += $"\nClicado no {DateTime.Now}";
     }
 }
