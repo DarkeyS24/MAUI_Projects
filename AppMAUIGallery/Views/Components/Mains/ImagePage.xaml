@@ -5,6 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="ImagePage">
     <VerticalStackLayout>
-        <Image Source="galactico.png" />
+        <Image
+            Aspect="AspectFit"
+            IsAnimationPlaying="True"
+            Source="transition.gif" />
     </VerticalStackLayout>
 </ContentPage>

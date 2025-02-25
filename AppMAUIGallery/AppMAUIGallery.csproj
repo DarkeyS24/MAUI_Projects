@@ -68,10 +68,12 @@
 
 	<ItemGroup>
 	  <MauiImage Remove="Resources\Images\comico.jpg" />
+	  <MauiImage Remove="Resources\Images\comico.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\comico.jpg" />
+	  <None Remove="Resources\Images\comico.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
