@@ -4,20 +4,31 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="FlexLayoutPage">
-    <FlexLayout>
+    <!--  AlignItems = "Start"  -->
+    <FlexLayout Direction="Column" JustifyContent="Center">
+
         <Label
             Padding="10"
             BackgroundColor="RosyBrown"
+            FlexLayout.AlignSelf="Start"
             Text="Text 1" />
 
         <Label
             Padding="10"
             BackgroundColor="SandyBrown"
+            FlexLayout.AlignSelf="Center"
             Text="Text 2" />
 
         <Label
             Padding="10"
             BackgroundColor="SaddleBrown"
+            FlexLayout.AlignSelf="End"
+            Text="Text 3" />
+
+        <Label
+            Padding="10"
+            BackgroundColor="Brown"
+            FlexLayout.AlignSelf="Stretch"
             Text="Text 3" />
     </FlexLayout>
 </ContentPage>

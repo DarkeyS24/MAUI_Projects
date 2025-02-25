@@ -16,6 +16,7 @@ public partial class Menu : ContentPage
             var lblCategory = new Label();
             lblCategory.Text = category.Name;
 			lblCategory.FontFamily = "OpenSansSemibold";
+            lblCategory.Margin = new Thickness(0,30,0,0);
 
 			MenuContainer.Children.Add(lblCategory);
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Components.Mains.LabelPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LabelPage">
+    <VerticalStackLayout>
+
+        <Label
+            Padding="10"
+            BackgroundColor="Gray"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            Text="TEXT" />
+
+        <Label
+            Padding="10"
+            FontSize="24"
+            Text="Welcome to .NET MAUI!"
+            TextDecorations="Underline"
+            TextTransform="Default" />
+
+        <Label
+            Padding="10"
+            FontAttributes="None"
+            FontFamily="OpenSansSemibold"
+            FontSize="16"
+            Text="Welcome to .NET MAUI!" />
+
+        <Label
+            Padding="10"
+            LineBreakMode="WordWrap"
+            LineHeight="1.5"
+            MaxLines="5"
+            Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum." />
+
+        <Label Padding="10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span FontAttributes="Bold" Text="Lorem Ipsum" />
+                    <Span FontAttributes="Italic" Text=" is simply dummy text of the printing" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Label
+            Padding="10"
+            BackgroundColor="#F2F2F2"
+            FontAttributes="Bold"
+            FontSize="20"
+            HeightRequest="310"
+            HorizontalTextAlignment="Center"
+            Text=".NET MAUI"
+            VerticalTextAlignment="Center" />
+
+        <Label
+            Padding="10"
+            BackgroundColor="Gray"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
+            Text="HTML" />
+
+        <Label
+            Padding="10"
+            BackgroundColor="LightGray"
+            Text="&lt;strong&gt;Bem-vindo ao .NET MAUI!&lt;/strong&gt;"
+            TextType="Html" />
+
+        <Label
+            Padding="10"
+            BackgroundColor="LightGray"
+            TextType="Html">
+            <Label.Text>
+                <![CDATA[
+                <strong>Agradecido con el de arriba</strong>
+                <br/> <i>"Si o no marino"</i>
+                ]]>
+            </Label.Text>
+        </Label>
+    </VerticalStackLayout>
+</ContentPage>
