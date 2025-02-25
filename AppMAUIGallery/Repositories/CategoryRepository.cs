@@ -13,15 +13,17 @@ namespace AppMAUIGallery.Repositories
     {
         public CategoryRepository() { }
 
-        public List<Category> GetCategories()
+        public static List<Category> GetCategories()
         {
             List<Category> categories = new List<Category>();
-            categories.Add(new Category { 
-                Name="Layout",
-                Components = new List<Component> 
-                { 
-                     new Component 
-                     { 
+            categories.Add(
+                new Category
+                {
+                    Name = "Layout",
+                    Components =
+                {
+                     new Component
+                     {
                         Name="StackLayout",
                         Description="Organização sequencial dos elementos.",
                         Page = typeof(StackLayoutPage)
@@ -32,7 +34,7 @@ namespace AppMAUIGallery.Repositories
                         Description="Organiza os elementos dentro de uma tabela.",
                         Page = typeof(GridLayoutPage)
                      },
-                     new Component 
+                     new Component
                      {
                          Name="AbsoluteLayout",
                          Description="Liberdade total para posicionar e dimensionar os elementos na tela.",
@@ -45,16 +47,17 @@ namespace AppMAUIGallery.Repositories
                          Page = typeof(FlexLayoutPage)
                      }
                 }
-            });
-            categories.Add(new Category()
-            {
-                Name = "Componentes (Views)",
-                Components = new List<Component>
-                {
+                }); 
+            categories.Add(
+               new Category()
+               {
+                   Name = "Componentes (Views)",
+                   Components =
+                   {
                     new Component
                     {
                         Name="BoxView",
-                        Description="Um componente que cria uma caixa para ser apresentada.",
+                        Description="Um componente que cria uma caixa para ser apresentada na tela.",
                         Page=typeof(BoxViewPage)
                     },
                     new Component
@@ -78,7 +81,7 @@ namespace AppMAUIGallery.Repositories
                     new Component
                     {
                         Name="ImageButton",
-                        Description="Apresenta uma imagem com comportamento de botão.",
+                        Description="Apresenta uma imagem com comportamento de botão na tela.",
                         Page=typeof(ImageButtonPage)
                     }
                 }
