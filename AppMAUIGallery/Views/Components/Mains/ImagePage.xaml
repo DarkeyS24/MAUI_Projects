@@ -4,10 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="ImagePage">
-    <VerticalStackLayout>
+    <VerticalStackLayout BackgroundColor="Black">
+        <Label
+            Margin="0,50,0,5"
+            Padding="5"
+            FontFamily="OpenSansSemibold"
+            FontSize="32"
+            HorizontalTextAlignment="Center"
+            Text="POV: Te pusiste comico"
+            TextColor="White" />
         <Image
             Aspect="AspectFit"
             IsAnimationPlaying="True"
+            IsOpaque="true"
             Source="transition.gif" />
     </VerticalStackLayout>
 </ContentPage>
