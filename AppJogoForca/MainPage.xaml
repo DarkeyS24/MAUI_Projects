@@ -6,9 +6,9 @@
     Title="MainPage">
     <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
         <Button
-            Margin="0,15,0,0"
+            Margin="0,25,0,0"
             Clicked="OnButtonClickedNewGame"
-            FontSize="32"
+            FontSize="28"
             HorizontalOptions="Center"
             Text="New game" />
 
@@ -45,24 +45,29 @@
                 <Button Clicked="OnButtonClickedVerifyElection" Text="T" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="Y" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="U" />
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Button Clicked="OnButtonClickedVerifyElection" Text="I" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="O" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="P" />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Button Clicked="OnButtonClickedVerifyElection" Text="A" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="S" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="D" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="F" />
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Button Clicked="OnButtonClickedVerifyElection" Text="G" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="H" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="J" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="K" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="L" />
-            </HorizontalStackLayout>
-            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Button Clicked="OnButtonClickedVerifyElection" Text="Z" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="X" />
+
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Button Clicked="OnButtonClickedVerifyElection" Text="C" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="V" />
                 <Button Clicked="OnButtonClickedVerifyElection" Text="B" />

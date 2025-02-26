@@ -95,7 +95,8 @@ public partial class MainPage : ContentPage
 		ResetVirtualKey((HorizontalStackLayout)keyboardContainer.Children[0]);
 		ResetVirtualKey((HorizontalStackLayout)keyboardContainer.Children[1]);
 		ResetVirtualKey((HorizontalStackLayout)keyboardContainer.Children[2]);
-	}
+        ResetVirtualKey((HorizontalStackLayout)keyboardContainer.Children[3]);
+    }
 	private void ResetVirtualKey(HorizontalStackLayout h)
 	{
 		foreach(Button button in h.Children)
