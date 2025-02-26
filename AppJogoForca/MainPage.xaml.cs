@@ -11,40 +11,66 @@ public partial class MainPage : ContentPage
 
 	public MainPage()
 	{
-		
 		InitializeComponent();
-
 		ResetScreen();
 	}
 
-	private async void OnButtonClicked(object sender, EventArgs e)
-	{
-		Button button = (Button)sender;
+	private async void OnButtonClickedVerifyElection(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
         button.IsEnabled = false;
-		string letter = button.Text;
-		var positions =word.Text.AllIndexesOf(letter);
+        string letter = button.Text;
+        var positions = word.Text.AllIndexesOf(letter);
 
-		if(positions.Count == 0)
-		{
-			misses++;
-			imgMain.Source = ImageSource.FromFile($"forca{misses + 1}.png");
-			button.Style = App.Current.Resources.MergedDictionaries.ElementAt(1)["Misses"] as Style;
-
-			if (misses == 6)
-			{
-				await DisplayAlert("You lose!", "Wanna try again?", "New game");
-				ResetScreen();
-			}
+        if (positions.Count == 0)
+        {
+            ErrorHandler(button);
+            await IsGameOver();
             return;
-		}
+        }
+        ReplaceLetter(button, letter, positions);
+        IsWinner();
+    }
+    private void OnButtonClickedNewGame(object sender, EventArgs e)
+    {
+        ResetScreen();
+    }
 
-		foreach(int position in positions)
-		{
-			lblText.Text = lblText.Text.Remove(position, 1).Insert(position, letter);
+    #region Winner Handler
+    private async void IsWinner()
+    {
+        if (!lblText.Text.Contains("_"))
+        {
+            await DisplayAlert("You won!", "CONGRATULAIONS.", "New game");
+            ResetScreen();
+        }
+    }
+    private void ReplaceLetter(Button button, string letter, List<int> positions)
+    {
+        foreach (int position in positions)
+        {
+            lblText.Text = lblText.Text.Remove(position, 1).Insert(position, letter);
             button.Style = App.Current.Resources.MergedDictionaries.ElementAt(1)["Hits"] as Style;
         }
-	}
-
+    }
+    #endregion
+    #region Lose Handler
+         private void ErrorHandler(Button button)
+            {
+                misses++;
+                imgMain.Source = ImageSource.FromFile($"forca{misses + 1}.png");
+                button.Style = App.Current.Resources.MergedDictionaries.ElementAt(1)["Misses"] as Style;
+            }
+            private async Task IsGameOver()
+            {
+                if (misses == 6)
+                {
+                    await DisplayAlert("You lose!", "Wanna try again?", "New game");
+                    ResetScreen();
+                }
+            }
+    #endregion
+    #region Reset Screen - Back screen to initial state
     private void ResetScreen()
     {
 		ResetKeyboard();
@@ -78,4 +104,5 @@ public partial class MainPage : ContentPage
             button.Style = null;
         }
 	}
+    #endregion
 }

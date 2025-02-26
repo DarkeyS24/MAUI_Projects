@@ -5,6 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="MainPage">
     <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+        <Button
+            Margin="0,15,0,0"
+            Clicked="OnButtonClickedNewGame"
+            FontSize="32"
+            HorizontalOptions="Center"
+            Text="New game" />
+
         <Image
             x:Name="imgMain"
             Margin="0,20,0,0"
@@ -28,39 +35,39 @@
 
         <VerticalStackLayout
             x:Name="keyboardContainer"
-            Margin="0,0,0,20"
+            Margin="0,0,0,40"
             Spacing="5">
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                <Button Clicked="OnButtonClicked" Text="Q" />
-                <Button Clicked="OnButtonClicked" Text="W" />
-                <Button Clicked="OnButtonClicked" Text="E" />
-                <Button Clicked="OnButtonClicked" Text="R" />
-                <Button Clicked="OnButtonClicked" Text="T" />
-                <Button Clicked="OnButtonClicked" Text="Y" />
-                <Button Clicked="OnButtonClicked" Text="U" />
-                <Button Clicked="OnButtonClicked" Text="I" />
-                <Button Clicked="OnButtonClicked" Text="O" />
-                <Button Clicked="OnButtonClicked" Text="P" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="Q" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="W" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="E" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="R" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="T" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="Y" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="U" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="I" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="O" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="P" />
             </HorizontalStackLayout>
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                <Button Clicked="OnButtonClicked" Text="A" />
-                <Button Clicked="OnButtonClicked" Text="S" />
-                <Button Clicked="OnButtonClicked" Text="D" />
-                <Button Clicked="OnButtonClicked" Text="F" />
-                <Button Clicked="OnButtonClicked" Text="G" />
-                <Button Clicked="OnButtonClicked" Text="H" />
-                <Button Clicked="OnButtonClicked" Text="J" />
-                <Button Clicked="OnButtonClicked" Text="K" />
-                <Button Clicked="OnButtonClicked" Text="L" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="A" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="S" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="D" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="F" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="G" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="H" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="J" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="K" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="L" />
             </HorizontalStackLayout>
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                <Button Clicked="OnButtonClicked" Text="Z" />
-                <Button Clicked="OnButtonClicked" Text="X" />
-                <Button Clicked="OnButtonClicked" Text="C" />
-                <Button Clicked="OnButtonClicked" Text="V" />
-                <Button Clicked="OnButtonClicked" Text="B" />
-                <Button Clicked="OnButtonClicked" Text="N" />
-                <Button Clicked="OnButtonClicked" Text="M" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="Z" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="X" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="C" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="V" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="B" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="N" />
+                <Button Clicked="OnButtonClickedVerifyElection" Text="M" />
             </HorizontalStackLayout>
         </VerticalStackLayout>
 
