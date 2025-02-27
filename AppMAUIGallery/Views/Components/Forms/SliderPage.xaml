@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Components.Forms.SliderPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="SliderPage">
+    <VerticalStackLayout Padding="10">
+        <Label
+            x:Name="lblQtd"
+            HorizontalOptions="Start"
+            Text="Quantidade de quartos"
+            VerticalOptions="Center" />
+
+        <Slider
+            x:Name="slider"
+            DragCompleted="slider_DragCompleted"
+            DragStarted="slider_DragStarted"
+            Maximum="100"
+            MaximumTrackColor="#FF00FF00"
+            Minimum="0"
+            MinimumTrackColor="Red"
+            ThumbColor="Red"
+            ValueChanged="Slider_ValueChanged" />
+
+        <Label
+            x:Name="lblStatus"
+            Padding="10"
+            HorizontalOptions="Start" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -8,7 +8,7 @@
     BackgroundColor="#F3F3F3">
 
     <ScrollView>
-        <VerticalStackLayout Spacing="30">
+        <VerticalStackLayout Spacing="20">
             <Label
                 Margin="10"
                 FontFamily="OpenSansSemibold"

@@ -5,9 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="ShadowPage">
     <VerticalStackLayout Padding="10">
-        <Border Padding="10" BackgroundColor="White" Stroke="Blue">
+        <Border
+            Padding="10"
+            BackgroundColor="White"
+            Stroke="Blue">
             <Border.Shadow>
-                <Shadow Radius="5" Brush="Blue" Opacity="1" Offset="5,5"/>
+                <Shadow
+                    Brush="Blue"
+                    Opacity="1"
+                    Radius="5"
+                    Offset="5,5" />
             </Border.Shadow>
             <VerticalStackLayout>
                 <Label

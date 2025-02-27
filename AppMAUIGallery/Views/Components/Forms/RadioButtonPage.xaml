@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Components.Forms.RadioButtonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RadioButtonPage">
+    <VerticalStackLayout Padding="10">
+
+        <StackLayout>
+            <HorizontalStackLayout>
+                <Label
+                    Padding="10"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Text="Qual linguagem você mais gosta?"
+                    VerticalOptions="Center" />
+
+                <Border
+                    x:Name="borderQ1"
+                    Padding="10"
+                    BackgroundColor="White"
+                    IsVisible="False">
+                    <Border.Shadow>
+                        <Shadow Opacity="1" Radius="5" />
+                    </Border.Shadow>
+                    <Label x:Name="lblAnswerQ1" FontAttributes="Bold" />
+                </Border>
+            </HorizontalStackLayout>
+
+            <RadioButton
+                BorderColor="Red"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ1"
+                Content="Java" />
+            <RadioButton
+                BorderColor="LightBlue"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ1"
+                Content="C#" />
+            <RadioButton
+                BorderColor="Purple"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ1"
+                Content="PHP" />
+            <RadioButton
+                BorderColor="LightGreen"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ1"
+                Content="JavaScript" />
+            <RadioButton
+                BorderColor="DarkSlateBlue"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ1"
+                Content="Ruby" />
+            <RadioButton
+                BorderColor="Blue"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ1"
+                Content="Phyton" />
+        </StackLayout>
+
+        <StackLayout>
+            <HorizontalStackLayout>
+                <Label
+                    Padding="10"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Text="Qual linguagem você mais odeia?"
+                    VerticalOptions="Center" />
+
+                <Border
+                    x:Name="borderQ2"
+                    Padding="10"
+                    BackgroundColor="White"
+                    IsVisible="False">
+                    <Border.Shadow>
+                        <Shadow Opacity="1" Radius="5" />
+                    </Border.Shadow>
+                    <Label x:Name="lblAnswerQ2" FontAttributes="Bold" />
+                </Border>
+            </HorizontalStackLayout>
+
+            <RadioButton
+                BorderColor="Red"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ2"
+                Content="Java" />
+            <RadioButton
+                BorderColor="LightBlue"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ2"
+                Content="C#" />
+            <RadioButton
+                BorderColor="Purple"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ2"
+                Content="PHP" />
+            <RadioButton
+                BorderColor="LightGreen"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ2"
+                Content="JavaScript" />
+            <RadioButton
+                BorderColor="DarkSlateBlue"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ2"
+                Content="Ruby" />
+            <RadioButton
+                BorderColor="Blue"
+                BorderWidth="0.1"
+                CheckedChanged="CheckedChangedQ2"
+                Content="Phyton" />
+        </StackLayout>
+        <!--  Have border  -->
+    </VerticalStackLayout>
+</ContentPage>
