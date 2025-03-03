@@ -16,6 +16,10 @@ public partial class PickerListPage : ContentPage
 
     private void pickerControl_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        var num = pickerControl.SelectedIndex;
+        Movie movie = (Movie)pickerControl.SelectedItem;
+        movieImage.Source = ImageSource.FromFile($"filme{num + 1}.png");
+        movieNameLbl.Text = movie.Name;
+        descLbl.Text = $"Duração: {movie.Duration}\nAno de lanzamento: {movie.LaunchYear}\n\n{movie.Description}";
     }
 }

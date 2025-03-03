@@ -238,6 +238,12 @@ namespace AppMAUIGallery.Repositories
                         Name="Picker",
                         Description="Apresenta uma lista de seleção única",
                         Page = typeof(PickerListPage)
+                    },
+                    new Component() 
+                    {
+                        Name="ListView",
+                        Description="Apresenta uma lista de items",
+                        Page = typeof(ListViewPage)
                     }
                 }
             });

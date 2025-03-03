@@ -4,15 +4,31 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="PickerListPage">
-    <!-- Picker: ItemDisplayBinding="{Binding Name(Propriedade)}" -->
+    <!--  Picker: ItemDisplayBinding="{Binding Name(Propriedade)}"  -->
     <VerticalStackLayout Padding="10" Spacing="20">
-        <Picker x:Name="pickerControl" Title="Filmes" SelectedIndexChanged="pickerControl_SelectedIndexChanged" />
+        <Picker
+            x:Name="pickerControl"
+            Title="Filmes"
+            SelectedIndexChanged="pickerControl_SelectedIndexChanged" />
 
         <Button
             Clicked="Button_Clicked"
             HorizontalOptions="Center"
             Text="Carregar" />
 
-        <Image Source="filme2.png" HeightRequest="350"/>
+        <Image x:Name="movieImage" HeightRequest="350" />
+
+        <Label
+            x:Name="movieNameLbl"
+            FontAttributes="Bold"
+            FontSize="26"
+            HorizontalTextAlignment="Center" />
+
+        <ScrollView HeightRequest="135">
+            <VerticalStackLayout>
+                <Label x:Name="descLbl" HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+
     </VerticalStackLayout>
 </ContentPage>
