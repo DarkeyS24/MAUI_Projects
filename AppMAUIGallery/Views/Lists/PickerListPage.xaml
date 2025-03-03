@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="PickerListPage">
+    <!-- Picker: ItemDisplayBinding="{Binding Name(Propriedade)}" -->
     <VerticalStackLayout Padding="10" Spacing="20">
         <Picker x:Name="pickerControl" Title="Filmes" SelectedIndexChanged="pickerControl_SelectedIndexChanged" />
 
@@ -11,5 +12,7 @@
             Clicked="Button_Clicked"
             HorizontalOptions="Center"
             Text="Carregar" />
+
+        <Image Source="filme2.png" HeightRequest="350"/>
     </VerticalStackLayout>
 </ContentPage>
