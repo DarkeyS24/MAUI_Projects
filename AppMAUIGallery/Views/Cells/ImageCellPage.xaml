@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Cells.ImageCellPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ImageCellPage">
+    <VerticalStackLayout Padding="10">
+        <TableView>
+            <TableSection Title="Lista de colaboradores">
+                <ImageCell
+                    Detail="Analista de sistemas"
+                    DetailColor="Gray"
+                    ImageSource="https://2.bp.blogspot.com/_7p4NxoKlbj4/S3RxQbQ62eI/AAAAAAAAAFI/YS1Aiv2o_Cs/S45-s35/Photo%2Bon%2B2010-02-11%2Bat%2B15.39%2B%25232.jpg"
+                    Text="Jõao Rodrigues"
+                    TextColor="Blue" />
+            </TableSection>
+        </TableView>
+    </VerticalStackLayout>
+</ContentPage>
