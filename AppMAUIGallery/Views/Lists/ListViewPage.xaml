@@ -6,7 +6,13 @@
     Title="ListViewPage">
     <VerticalStackLayout Padding="10" Spacing="20">
         <Button Clicked="Button_Clicked" Text="Carregar" />
-        <ListView x:Name="listViewControl" HeightRequest="700" SelectionMode="Single" ItemSelected="listViewControl_ItemSelected">
+        <ListView
+            x:Name="listViewControl"
+            HasUnevenRows="True"
+            HeightRequest="700"
+            ItemSelected="listViewControl_ItemSelected"
+            SelectionMode="Single"
+            SeparatorVisibility="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

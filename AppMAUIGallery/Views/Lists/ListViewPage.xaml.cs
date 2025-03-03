@@ -12,6 +12,7 @@ public partial class ListViewPage : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
         listViewControl.ItemsSource = MovieList.GetList();
+        listViewControl.HeightRequest = DeviceDisplay.MainDisplayInfo.Height;
     }
 
     private void listViewControl_ItemSelected(object sender, SelectedItemChangedEventArgs e)
