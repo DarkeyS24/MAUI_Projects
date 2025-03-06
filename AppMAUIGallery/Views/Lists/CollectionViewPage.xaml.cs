@@ -8,6 +8,7 @@ public partial class CollectionViewPage : ContentPage
 {
     private ObservableCollection<Movie> movies = new ObservableCollection<Movie>();
     private int countMovies;
+    private string searchText;
 	public CollectionViewPage()
 	{
 		InitializeComponent();
@@ -58,5 +59,26 @@ public partial class CollectionViewPage : ContentPage
     private void Button_Clicked(object sender, EventArgs e)
     {
         collectionViewControl.ScrollTo(4, Position: ScrollToPosition.Center);
+    }
+
+    private void search_SearchButtonPressed(object sender, EventArgs e)
+    {
+        if (string.IsNullOrEmpty(search.Text))
+        {
+            searchText = search.Text;
+        }
+        var group = (List<GroupMovie>)collectionViewControl.ItemsSource;
+        for (int i = 0; i<group.Count; i++)
+        {
+            for (int j=0; j < group[i].Count; j++)
+            {
+                if (group[i][j].Name.Contains(searchText) || group[i][j].Description.Contains(searchText))
+                {
+                    collectionViewControl.ScrollTo(group[i][j], ScrollToPosition.Center);
+                    return;
+                }
+            }
+        }
+        
     }
 }

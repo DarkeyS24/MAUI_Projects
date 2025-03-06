@@ -17,7 +17,8 @@
                     <SearchBar
                         x:Name="search"
                         Margin="10"
-                        Placeholder="Pesquisar filme" />
+                        Placeholder="Pesquisar filme"
+                        SearchButtonPressed="search_SearchButtonPressed" />
                 </CollectionView.Header>
                 <CollectionView.GroupHeaderTemplate>
                     <DataTemplate>
