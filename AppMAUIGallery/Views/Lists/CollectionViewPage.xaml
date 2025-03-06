@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Lists.CollectionViewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="CollectionViewPage">
+
+    <RefreshView RefreshColor="#512BD4" Refreshing="RefreshView_Refreshing">
+        <CollectionView
+            x:Name="collectionViewControl"
+            IsGrouped="True"
+            RemainingItemsThreshold="-1"
+            RemainingItemsThresholdReached="collectionViewControl_RemainingItemsThresholdReached">
+            <CollectionView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10" BackgroundColor="Gray">
+                        <Label Text="Início" />
+                        <Label Text="{Binding CompanyName}" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="10">
+                        <Label
+                            Margin="0,10"
+                            FontAttributes="Bold"
+                            FontSize="32"
+                            Text="{Binding Name}" />
+                        <Label Text="{Binding Description}" TextColor="Gray" />
+                        <HorizontalStackLayout>
+                            <Border
+                                Margin="0,20"
+                                Padding="5"
+                                BackgroundColor="White"
+                                Stroke="#512BD4">
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="#512BD4"
+                                        Opacity="1"
+                                        Radius="5" />
+                                </Border.Shadow>
+                                <Label Text="{Binding LaunchYear}" />
+                            </Border>
+                            <Border
+                                Margin="20"
+                                Padding="5"
+                                BackgroundColor="White"
+                                Stroke="#512BD4">
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="#512BD4"
+                                        Opacity="1"
+                                        Radius="5" />
+                                </Border.Shadow>
+                                <Label Text="{Binding Duration}" />
+                            </Border>
+                        </HorizontalStackLayout>
+                        <BoxView HeightRequest="1" Color="#512BD4" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.GroupFooterTemplate>
+                <DataTemplate>
+                    <HorizontalStackLayout Padding="10" BackgroundColor="#F2F2F2">
+                        <Label Text="Fim" />
+                        <Label Text="{Binding CompanyName}" />
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </CollectionView.GroupFooterTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

@@ -11,7 +11,7 @@ public partial class ListViewPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-        listViewControl.ItemsSource = MovieList.GetList();
+        listViewControl.ItemsSource = MovieList.GetGroupList().Take(2);
         listViewControl.HeightRequest = DeviceDisplay.MainDisplayInfo.Height;
     }
 
@@ -19,5 +19,13 @@ public partial class ListViewPage : ContentPage
     {
         Movie movie = (Movie)e.SelectedItem;
         DisplayAlert("Filme selecionado!", $"O filme selecionado é: {movie.Name}", "OK");
+    }
+
+    private async void listViewControl_Refreshing(object sender, EventArgs e)
+    {
+        listViewControl.IsRefreshing = true;
+        await Task.Delay(3000);
+        listViewControl.ItemsSource = MovieList.GetGroupList();
+        listViewControl.IsRefreshing = false;
     }
 }

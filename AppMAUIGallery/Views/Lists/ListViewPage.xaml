@@ -5,14 +5,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="ListViewPage">
     <VerticalStackLayout Padding="10" Spacing="20">
-        <Button Clicked="Button_Clicked" Text="Carregar" />
         <ListView
             x:Name="listViewControl"
             HasUnevenRows="True"
             HeightRequest="700"
+            IsGroupingEnabled="True"
+            IsPullToRefreshEnabled="True"
             ItemSelected="listViewControl_ItemSelected"
+            Refreshing="listViewControl_Refreshing"
             SelectionMode="Single"
-            SeparatorVisibility="None">
+            SeparatorVisibility="Default">
+            <ListView.Header>
+                <Button Clicked="Button_Clicked" Text="Carregar" />
+            </ListView.Header>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout>
+                            <Border
+                                Margin="20"
+                                Padding="5"
+                                BackgroundColor="White"
+                                HorizontalOptions="Center"
+                                Stroke="BlueViolet">
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="BlueViolet"
+                                        Opacity="1"
+                                        Radius="5" />
+                                </Border.Shadow>
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="24"
+                                    Text="{Binding CompanyName}" />
+                            </Border>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

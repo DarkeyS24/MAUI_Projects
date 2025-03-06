@@ -244,6 +244,12 @@ namespace AppMAUIGallery.Repositories
                         Name="ListView",
                         Description="Apresenta uma lista de items",
                         Page = typeof(ListViewPage)
+                    },
+                    new Component() 
+                    {
+                        Name="CollectionView",
+                        Description="Apresenta uma lista de items",
+                        Page = typeof(CollectionViewPage)
                     }
                 }
             });
