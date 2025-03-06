@@ -17,6 +17,6 @@
             Aspect="AspectFit"
             IsAnimationPlaying="True"
             IsOpaque="true"
-            Source="AppMAUIGallery.Resources.Images.transition.gif" />
+            Source="transition.gif" />
     </VerticalStackLayout>
 </ContentPage>

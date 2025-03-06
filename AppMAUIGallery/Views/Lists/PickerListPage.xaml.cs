@@ -18,7 +18,7 @@ public partial class PickerListPage : ContentPage
     {
         var num = pickerControl.SelectedIndex;
         Movie movie = (Movie)pickerControl.SelectedItem;
-        movieImage.Source = ImageSource.FromFile($"AppMAUIGallery.Resources.Images.filme{num + 1}.png");
+        movieImage.Source = ImageSource.FromFile($"filme{num + 1}.png");
         movieNameLbl.Text = movie.Name;
         descLbl.Text = $"Duração: {movie.Duration}\nAno de lanzamento: {movie.LaunchYear}\n\n{movie.Description}";
     }
