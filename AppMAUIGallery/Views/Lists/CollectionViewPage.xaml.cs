@@ -58,27 +58,26 @@ public partial class CollectionViewPage : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
-        collectionViewControl.ScrollTo(4, Position: ScrollToPosition.Center);
+        collectionViewControl.ScrollTo(4, position: ScrollToPosition.Center);
     }
 
     private void search_SearchButtonPressed(object sender, EventArgs e)
     {
-        if (string.IsNullOrEmpty(search.Text))
+        if (!string.IsNullOrEmpty(search.Text))
         {
             searchText = search.Text;
-        }
-        var group = (List<GroupMovie>)collectionViewControl.ItemsSource;
-        for (int i = 0; i<group.Count; i++)
-        {
-            for (int j=0; j < group[i].Count; j++)
+            var group = (List<GroupMovie>)collectionViewControl.ItemsSource;
+            foreach (var itemGroup in group)
             {
-                if (group[i][j].Name.Contains(searchText) || group[i][j].Description.Contains(searchText))
+                foreach (Movie movie in itemGroup)
                 {
-                    collectionViewControl.ScrollTo(group[i][j], ScrollToPosition.Center);
-                    return;
+                    if (movie.Name.Contains(searchText, StringComparison.OrdinalIgnoreCase) || movie.Description.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                    {
+                        collectionViewControl.ScrollTo(movie, position: ScrollToPosition.Center);
+                        return;
+                    }
                 }
             }
         }
-        
     }
 }
