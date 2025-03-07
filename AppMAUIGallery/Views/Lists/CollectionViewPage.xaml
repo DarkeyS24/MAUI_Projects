@@ -11,6 +11,7 @@
                 IsGrouped="True"
                 RemainingItemsThreshold="-1"
                 RemainingItemsThresholdReached="collectionViewControl_RemainingItemsThresholdReached"
+                Scrolled="collectionViewControl_Scrolled"
                 SelectionMode="Multiple">
                 <CollectionView.Header>
                     <SearchBar
@@ -79,13 +80,24 @@
             </CollectionView>
         </RefreshView>
         <Button
-            Margin="10"
+            Margin="10,0,10,75"
             Padding="10"
             BorderColor="#512BD4"
             BorderWidth="2"
             Clicked="Button_Clicked"
             HorizontalOptions="End"
             Text="Vá para o índice 5"
+            VerticalOptions="End" />
+
+        <Label
+            x:Name="statusLbl"
+            Margin="10,0,10,10"
+            Padding="10"
+            BackgroundColor="#512BD4"
+            FontAttributes="Italic"
+            HorizontalOptions="End"
+            IsVisible="False"
+            TextColor="White"
             VerticalOptions="End" />
     </Grid>
 </ContentPage>

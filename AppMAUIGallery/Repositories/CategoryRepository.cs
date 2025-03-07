@@ -250,6 +250,12 @@ namespace AppMAUIGallery.Repositories
                         Name="CollectionView",
                         Description="Apresenta uma lista de items",
                         Page = typeof(CollectionViewPage)
+                    },
+                    new Component() 
+                    {
+                        Name="CarouselView",
+                        Description="Apresenta uma lista de items horizontais com navegação lateral",
+                        Page = typeof(CarouselViewPage)
                     }
                 }
             });

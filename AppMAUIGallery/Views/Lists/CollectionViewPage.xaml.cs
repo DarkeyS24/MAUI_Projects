@@ -80,4 +80,10 @@ public partial class CollectionViewPage : ContentPage
             }
         }
     }
+
+    private void collectionViewControl_Scrolled(object sender, ItemsViewScrolledEventArgs e)
+    {
+        statusLbl.Text = $"Posicionamento: {e.VerticalOffset} -  Espaçamento: {e.VerticalDelta}";
+        statusLbl.IsVisible = true;
+    }
 }
