@@ -230,32 +230,44 @@ namespace AppMAUIGallery.Repositories
                     new Component() 
                     {
                         Name="TableView",
-                        Description="Apresenta células em linhas separadas e permite agrupar por seção",
+                        Description="Apresenta células em linhas separadas e permite agrupar por seção.",
                         Page = typeof(TableViewPage)
                     },
                     new Component() 
                     {
                         Name="Picker",
-                        Description="Apresenta uma lista de seleção única",
+                        Description="Apresenta uma lista de seleção única.",
                         Page = typeof(PickerListPage)
                     },
                     new Component() 
                     {
                         Name="ListView",
-                        Description="Apresenta uma lista de items",
+                        Description="Apresenta uma lista de items.",
                         Page = typeof(ListViewPage)
                     },
                     new Component() 
                     {
                         Name="CollectionView",
-                        Description="Apresenta uma lista de items",
+                        Description="Apresenta uma lista de items.",
                         Page = typeof(CollectionViewPage)
                     },
                     new Component() 
                     {
                         Name="CarouselView",
-                        Description="Apresenta uma lista de items horizontais com navegação lateral",
+                        Description="Apresenta uma lista de items horizontais com navegação lateral.",
                         Page = typeof(CarouselViewPage)
+                    },
+                    new Component() 
+                    {
+                        Name="BindableLayout (Atributo)",
+                        Description="Permite que os layouts possam apresentar nossas listas e coleções.",
+                        Page = typeof(BindableLayoutPage)
+                    },
+                    new Component() 
+                    {
+                        Name="DataTemplateSelector (Classe)",
+                        Description="Permite que os itens possam ser apresentados com layouts diferentes.",
+                        Page = typeof(DataTemplateSelectorPage)
                     }
                 }
             });
