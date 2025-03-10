@@ -36,7 +36,7 @@ namespace AppMAUIGallery.Views.Lists.Models
             {
                 Id = 1,
                 Name = "Nosferatu",
-                Description = "Uma jovem noiva é deixada sob os cuidados de amigos quando seu marido viaja para a Transilvânia para um encontro com o Conde Orlok. Atormentada por visões terríveis e uma crescente sensação de pavor, ela logo encontra uma força maligna que está muito além de sua compreensão.",
+                Description = "Uma jovem noiva é deixada sobre os cuidados de amigos quando seu marido viaja para a Transilvânia para um encontro com o Conde Orlok. Atormentada por visões terríveis e uma crescente sensação de pavor, ela logo encontra uma força maligna que está muito além de sua compreensão.",
                 Duration = new TimeSpan(2, 12, 0),
                 LaunchYear = 2024,
                 MovieImage = "AppMAUIGallery/Resources/Images/filme1.png"
@@ -136,7 +136,7 @@ namespace AppMAUIGallery.Views.Lists.Models
             list.Add(new Movie() { 
                 Id=1, 
                 Name= "Nosferatu", 
-                Description= "Uma jovem noiva é deixada sob os cuidados de amigos quando seu marido viaja para a Transilvânia para um encontro com o Conde Orlok. Atormentada por visões terríveis e uma crescente sensação de pavor, ela logo encontra uma força maligna que está muito além de sua compreensão.", 
+                Description= "Uma jovem noiva é deixada sobre os cuidados de amigos quando seu marido viaja para a Transilvânia para um encontro com o Conde Orlok. Atormentada por visões terríveis e uma crescente sensação de pavor, ela logo encontra uma força maligna que está muito além de sua compreensão.", 
                 Duration= new TimeSpan(2,12,0),
                 LaunchYear = 2024,
                 MovieImage = "AppMAUIGallery/Resources/Images/filme1.png"

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppMAUIGallery.Models
 {
-    internal class Component
+    public class Component
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -13,17 +13,24 @@ using AppMAUIGallery.Views.Visuals;
 
 namespace AppMAUIGallery.Repositories
 {
-    internal class CategoryRepository
+    public partial class GroupComponentRepository : IGroupComponentRepository
     {
-        public CategoryRepository() { }
-
-        public List<Category> GetCategories()
+        private void LoadData()
         {
-            List<Category> categories = new List<Category>();
-            categories.Add(new Category
-            {
-                Name = "Layout",
-                Components = new List<Component>
+            _components = new List<Component>();
+            _groupComponents = new List<GroupComponent>();
+
+            LoadLayout();
+            LoadControls();
+            LoadVisuals();
+            LoadForms();
+            LoadCells();
+            LoadCollectionsAndLists();
+        }
+
+        private void LoadLayout()
+        {
+            var components = new List<Component>
                 {
                      new Component
                      {
@@ -49,12 +56,19 @@ namespace AppMAUIGallery.Repositories
                          Description="Organiza os elementos de forma sequencial com muitas opções de personalização.",
                          Page = typeof(FlexLayoutPage)
                      }
-                }
-            });
-            categories.Add(new Category()
+                };
+            var group = new GroupComponent()
             {
-                Name = "Componentes (Views)",
-                Components = new List<Component>
+                Name = "Layout"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadControls()
+        {
+            var components = new List<Component>
                 {
                     new Component
                     {
@@ -86,12 +100,19 @@ namespace AppMAUIGallery.Repositories
                          Description="Apresenta uma imagem com comportamento de botão na tela.",
                          Page=typeof(ImageButtonPage)
                     }
-                }
-            });
-            categories.Add(new Category()
+                };
+            var group = new GroupComponent()
             {
-                Name = "Visuais",
-                Components = new List<Component>
+                Name = "Componentes (Views)"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadVisuals()
+        {
+            var components = new List<Component>
                 {
                     new Component()
                     {
@@ -111,12 +132,19 @@ namespace AppMAUIGallery.Repositories
                         Description="Adiciona uma sombra ao elemento.",
                         Page=typeof(ShadowPage)
                     }
-                }
-            });
-            categories.Add(new Category()
+                };
+            var group = new GroupComponent()
             {
-                Name = "Formulários",
-                Components = new List<Component>
+                Name = "Visuais"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadForms()
+        {
+            var components = new List<Component>
                 {
                     new Component()
                     {
@@ -184,12 +212,19 @@ namespace AppMAUIGallery.Repositories
                         Description="Selecionar um item da lista.",
                         Page=typeof(PickerPage)
                     }
-                }
-            });
-            categories.Add(new Category
+                };
+            var group = new GroupComponent()
             {
-                Name = "Células",
-                Components = new List<Component>
+                Name = "Formulários"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadCells()
+        {
+            var components = new List<Component>
                 {
                     new Component()
                     {
@@ -221,58 +256,71 @@ namespace AppMAUIGallery.Repositories
                         Description="Permite criar a nossa célula com layout personalizado.",
                         Page=typeof(ViewCellPage)
                     }
-                }
-            });
-            categories.Add(new Category{
-                Name="Listas e Coleções",
-                Components = new List<Component> 
+                };
+            var group = new GroupComponent()
+            {
+                Name = "Células"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadCollectionsAndLists()
+        {
+            var components = new List<Component>
                 {
-                    new Component() 
+                    new Component()
                     {
                         Name="TableView",
                         Description="Apresenta células em linhas separadas e permite agrupar por seção.",
                         Page = typeof(TableViewPage)
                     },
-                    new Component() 
+                    new Component()
                     {
                         Name="Picker",
                         Description="Apresenta uma lista de seleção única.",
                         Page = typeof(PickerListPage)
                     },
-                    new Component() 
+                    new Component()
                     {
                         Name="ListView",
                         Description="Apresenta uma lista de items.",
                         Page = typeof(ListViewPage)
                     },
-                    new Component() 
+                    new Component()
                     {
                         Name="CollectionView",
                         Description="Apresenta uma lista de items.",
                         Page = typeof(CollectionViewPage)
                     },
-                    new Component() 
+                    new Component()
                     {
                         Name="CarouselView",
                         Description="Apresenta uma lista de items horizontais com navegação lateral.",
                         Page = typeof(CarouselViewPage)
                     },
-                    new Component() 
+                    new Component()
                     {
                         Name="BindableLayout (Atributo)",
                         Description="Permite que os layouts possam apresentar nossas listas e coleções.",
                         Page = typeof(BindableLayoutPage)
                     },
-                    new Component() 
+                    new Component()
                     {
                         Name="DataTemplateSelector (Classe)",
                         Description="Permite que os itens possam ser apresentados com layouts diferentes.",
                         Page = typeof(DataTemplateSelectorPage)
                     }
-                }
-            });
+                };
+            var group = new GroupComponent()
+            {
+                Name = "Listas e Coleções"
+            };
+            group.AddRange(components);
 
-            return categories;
+            _components.AddRange(components);
+            _groupComponents.Add(group);
         }
     }
 }

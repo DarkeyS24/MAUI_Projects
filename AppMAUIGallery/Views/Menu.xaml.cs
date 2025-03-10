@@ -6,48 +6,18 @@ namespace AppMAUIGallery.Views;
 
 public partial class Menu : ContentPage
 {
-	public Menu()
+    private IGroupComponentRepository repository;
+ 
+    public Menu()
 	{
 		InitializeComponent();
-		var categories = new CategoryRepository().GetCategories();
-
-		foreach (var category in categories)
-		{
-            var lblCategory = new Label();
-            lblCategory.Text = category.Name;
-			lblCategory.FontFamily = "OpenSansSemibold";
-            lblCategory.Margin = new Thickness(0,30,0,0);
-
-			MenuContainer.Children.Add(lblCategory);
-
-			foreach (var component in category.Components)
-			{
-				var tap = new TapGestureRecognizer();
-				tap.CommandParameter = component.Page;
-				tap.Tapped += OnTapComponent;
-
-				var lblComponentTitle = new Label();
-				lblComponentTitle.FontFamily = "OpenSansSemibold";
-                lblComponentTitle.Text = component.Name;
-                lblComponentTitle.Margin = new Thickness(10, 10, 0, 0);
-				lblComponentTitle.GestureRecognizers.Add(tap);
-
-                var lblComponentDescription = new Label();
-				lblComponentDescription.Text = component.Description;
-                lblComponentDescription.Margin = new Thickness(10, 5, 0, 0);
-                lblComponentDescription.GestureRecognizers.Add(tap);
-
-                MenuContainer.Children.Add(lblComponentTitle);
-				MenuContainer.Children.Add(lblComponentDescription);
-			}
-        }
+        repository = new GroupComponentRepository();
+        menuCollection.ItemsSource = repository.GetGroupComponents();
 	}
 
-	private void OnTapComponent(object sender, EventArgs e)
+	private void OnTapComponent(object sender, TappedEventArgs e)
 	{
-        if (sender is Label label && label.GestureRecognizers.FirstOrDefault() is TapGestureRecognizer tap)
-        {
-            var page = tap.CommandParameter as Type;
+            var page = (Type)e.Parameter;
             if (page != null)
             {
                 if (Application.Current.Windows.Count > 0)
@@ -61,14 +31,6 @@ public partial class Menu : ContentPage
                     }
                 }
             }
-            else
-            {
-                Debug.WriteLine("Erro: O CommandParameter não é uma Page válida.");
-            }
-        }else
-        {
-            Debug.WriteLine("Erro: O CommandParameter não é um tipo válido.");
-        }
     }
 
     private void OnTapInicio(object sender, TappedEventArgs e)
