@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTask.Views.StartPage"
+             xmlns:converter="clr-namespace:AppTask.Libraries.Converters"
+             NavigationPage.HasNavigationBar="False"
+             Title="StartPage">
+    <ContentPage.Resources>
+        <converter:BoolToTextDecorationStrikeThroug x:Key="BoolToTextDecorationStrikeThroug"/>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="70, *">
+        <Border Margin="20,20,20,0" 
+                HeightRequest="50" 
+                StrokeShape="RoundRectangle 25"
+                BackgroundColor="#F7F7F7">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="ClickedToEntryFocus"/>
+            </Border.GestureRecognizers>
+            <StackLayout Orientation="Horizontal">
+                <Image Source="find.png" HeightRequest="33" WidthRequest="33" Margin="9,0,0,0"/>
+                <Entry TextChanged="OnTextChanged_FilteredList" x:Name="entrySearch" PlaceholderColor="#A8A8A8" Placeholder="Pesquisar..." HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </Border>
+        <!-- Inicio - Segunda Linha -->
+        <CollectionView x:Name="collectionViewTasks" Grid.Row="1" Margin="0,15,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="70,*,70" Padding="10,5">
+                        <CheckBox Grid.Column="0" HorizontalOptions="Center" IsChecked="{Binding IsCompleted}">
+                            <CheckBox.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnCheckBoxClickedToComplete"/>
+                            </CheckBox.GestureRecognizers>
+                        </CheckBox>
+                        <StackLayout Grid.Column="1">
+                            <Label Text="{Binding Name}" FontAttributes="Bold" TextDecorations="{Binding IsCompleted, Converter={StaticResource BoolToTextDecorationStrikeThroug}}"/>
+                            <Label Text="{Binding PrevisionDate}" TextColor="{StaticResource Gray400}" FontAttributes="Bold" TextDecorations="{Binding IsCompleted, Converter={StaticResource BoolToTextDecorationStrikeThroug}}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnTapToEdit"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <Image Grid.Column="2"
+                               Source="trash.png"
+                               WidthRequest="25">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnImageClickedToDelete"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <Label x:Name="emptyLlb" Text="O que você deseja fazer" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Gray300}"/>
+        <Button Text="+ Adicionar Tarefa" Grid.Row="1" FontSize="20" Clicked="OnButtonClickedToAdd" Margin="15" HorizontalOptions="Center" VerticalOptions="End"/>
+        <!-- Final - Segunda Linha -->
+    </Grid>
+</ContentPage>
