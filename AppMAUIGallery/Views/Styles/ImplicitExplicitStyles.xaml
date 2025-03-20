@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Styles.ImplicitExplicitStyles"
+             Title="ImplicitExplicitStyles">
+    <ContentPage.Resources>
+        <!-- Implicit Style -->
+        <Style TargetType="Label">
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        
+        <!-- Explicit Style -->
+        <Style TargetType="Label" x:Key="StyleParagraph">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="TextColor" Value="{StaticResource Gray400}"/>
+            <Setter Property="Padding" Value="0,5"/>
+        </Style>
+        
+        <Style TargetType="Label" x:Key="StyleTitle">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,15,0,10"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ScrollView Padding="20">
+        <VerticalStackLayout>
+            <Label Text="Artigo 1" Style="{StaticResource StyleTitle}"/>
+            <Label Text="Lorem ipsum dolor sit amet. Sed dolor voluptatem rem voluptates optio ab omnis ratione. Id esse consectetur ut modi alias qui nostrum placeat. At eaque quibusdam ab mollitia quia eum impedit reprehenderit ut odio error." Style="{StaticResource StyleParagraph}"/>
+            <Label Text="Et delectus expedita non explicabo rerum quo tempore accusamus qui accusamus consectetur nam dolorum suscipit aut quod dolore et consequuntur eveniet. Est obcaecati voluptate et dicta quia ab ipsam amet et consectetur consequuntur qui quam recusandae. Ut perferendis quibusdam ab voluptatem tempore id rerum explicabo id voluptatem eaque. Cum quae quidem aut galisum quia et voluptatum commodi ut consequatur perspiciatis." Style="{StaticResource StyleParagraph}"/>
+            <Label Text="Artigo 2" Style="{StaticResource StyleTitle}"/>
+            <Label Text="Hic dolorem sunt a veniam necessitatibus et repudiandae internos ad facere nulla At similique facere et Quis consequatur. Et minima aliquam et ratione laborum aut quas reiciendis ab quisquam dolor aut nobis voluptas ut distinctio rerum." Style="{StaticResource StyleParagraph}"/>
+            <Label Text="Qui adipisci aliquam est quae sequi aut enim veniam hic nihil ipsam ut commodi voluptates. Ad fugit libero aut quia placeat et dicta voluptatum et nobis quia est neque delectus sed autem blanditiis aut autem sequi? Est nostrum ullam rem ipsam aliquid id beatae voluptas aut deserunt adipisci est perferendis odio?" Style="{StaticResource StyleParagraph}"/>
+            <Label Text="Et commodi quam aut aperiam voluptas aut dolore fuga est distinctio nihil. Non consequatur voluptatem est ducimus aperiam qui incidunt culpa id earum nemo?" Style="{StaticResource StyleParagraph}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

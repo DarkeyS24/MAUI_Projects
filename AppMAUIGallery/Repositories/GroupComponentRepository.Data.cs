@@ -9,6 +9,7 @@ using AppMAUIGallery.Views.Components.Forms;
 using AppMAUIGallery.Views.Components.Mains;
 using AppMAUIGallery.Views.Layouts;
 using AppMAUIGallery.Views.Lists;
+using AppMAUIGallery.Views.Styles;
 using AppMAUIGallery.Views.Visuals;
 
 namespace AppMAUIGallery.Repositories
@@ -26,6 +27,7 @@ namespace AppMAUIGallery.Repositories
             LoadForms();
             LoadCells();
             LoadCollectionsAndLists();
+            LoadStyles();
         }
 
         private void LoadLayout()
@@ -316,6 +318,74 @@ namespace AppMAUIGallery.Repositories
             var group = new GroupComponent()
             {
                 Name = "Listas e Coleções"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadStyles()
+        {
+            var components = new List<Component>
+                {
+                    new Component()
+                    {
+                        Name="Implicit & Explicit Styles",
+                        Description="Explicar como funcionan os estilos.",
+                        Page = typeof(ImplicitExplicitStyles)
+                    },
+                    new Component()
+                    {
+                        Name="Global Style",
+                        Description="Aplica estilo global.",
+                        Page = typeof(GlobalStyle)
+                    },
+                    new Component()
+                    {
+                        Name="ApplyToDerivedTypes",
+                        Description="Aplicar um estilo aos elementos derivados da classe/componente atual.",
+                        Page = typeof(ApplyDerivedTypes)
+                    },
+                    new Component()
+                    {
+                        Name="Inheritance Style",
+                        Description="Como criar estilos derivados de outros.",
+                        Page = typeof(InheritanceStyle)
+                    },
+                    new Component()
+                    {
+                        Name="Style Class",
+                        Description="Cria classes de estilos para serem aplicadas aos componentes.",
+                        Page = typeof(StyleClassPage)
+                    },
+                    new Component()
+                    {
+                        Name="StaticResource & DinamicResource",
+                        Description="Define se o estilo pode ser alterado em tempo real.",
+                        Page = typeof(StaticDinamicResource)
+                    },
+                    new Component()
+                    {
+                        Name="Theme",
+                        Description="Define um tema padrão para o nosso projeto.",
+                        Page = typeof(Theme)
+                    },
+                    new Component()
+                    {
+                        Name="AppThemeBinding",
+                        Description="Adapta o tema ao modo claro/escuro do sistema operacional.",
+                        Page = typeof(AppThemeBindingPage)
+                    },
+                    new Component()
+                    {
+                        Name="Visual State Manager (VSM)",
+                        Description="Personaliza a paresentação de acordo com o estado do componente.",
+                        Page = typeof(VisualStateManagerPage)
+                    },
+                };
+            var group = new GroupComponent()
+            {
+                Name = "Styles"
             };
             group.AddRange(components);
 

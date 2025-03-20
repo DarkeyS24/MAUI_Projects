@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Styles.GlobalStyle"
+             Title="GlobalStyle">
+    <VerticalStackLayout Padding="20">
+        <Label Text="Artigo 1" Style="{StaticResource Title}"/>
+        <Label Style="{StaticResource Paragraph}" Text="Lorem ipsum dolor sit amet. Sed dolor voluptatem rem voluptates optio ab omnis ratione. Id esse consectetur ut modi alias qui nostrum placeat. At eaque quibusdam ab mollitia quia eum impedit reprehenderit ut odio error."/>
+        <Label  Style="{StaticResource Paragraph}" Text="Et delectus expedita non explicabo rerum quo tempore accusamus qui accusamus consectetur nam dolorum suscipit aut quod dolore et consequuntur eveniet. Est obcaecati voluptate et dicta quia ab ipsam amet et consectetur consequuntur qui quam recusandae. Ut perferendis quibusdam ab voluptatem tempore id rerum explicabo id voluptatem eaque. Cum quae quidem aut galisum quia et voluptatum commodi ut consequatur perspiciatis."/>
+    </VerticalStackLayout>
+</ContentPage>

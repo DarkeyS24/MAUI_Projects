@@ -6,9 +6,28 @@
     xmlns:local="clr-namespace:AppMAUIGallery">
     <Application.Resources>
         <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="14"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="Title">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,20"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="Paragraph">
+                <Setter Property="TextColor" Value="DimGray"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,0,0,10"/>
+            </Style>
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/LightTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

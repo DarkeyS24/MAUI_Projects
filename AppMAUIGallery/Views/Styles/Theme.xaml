@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Styles.Theme"
+             BackgroundColor="{DynamicResource BackgroundColor}"
+             Title="Theme">
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="Que viva Venezuela caballero"
+            FontAttributes="Bold"
+            FontSize="24"
+            TextColor="{DynamicResource PrimaryColor}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Button Text="Trocar modo da tela" Margin="40" HorizontalOptions="Center" Clicked="Button_Clicked"/>
+        
+    </VerticalStackLayout>
+</ContentPage>
