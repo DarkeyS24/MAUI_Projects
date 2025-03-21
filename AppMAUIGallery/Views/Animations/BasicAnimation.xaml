@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Animations.BasicAnimation"
+             Title="BasicAnimation">
+    <ScrollView>
+        <Grid RowDefinitions="*, 280">
+            <Border x:Name="border" Stroke="{StaticResource Gray300}" Grid.Row="0" StrokeThickness="2" WidthRequest="400" Margin="15">
+                <Image x:Name="image" Opacity="0" Source="filme5.png" WidthRequest="200" HorizontalOptions="Center" VerticalOptions="Center"/>
+            </Border>
+            <StackLayout Grid.Row="1" Orientation="Vertical">
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,0,0,5">
+                    <Button Text="Diminuir" Clicked="Diminuir" HorizontalOptions="Center" Margin="5"/>
+                    <Button Text="Normal" Clicked="Normal" HorizontalOptions="Center" Margin="5"/>
+                    <Button Text="Aumentar" Clicked="Aumentar" HorizontalOptions="Center" Margin="5"/>
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" Margin="0,0,0,5">
+                    <Button Text="Mover" Clicked="Mover" HorizontalOptions="Center" Margin="5"/>
+                    <Button Text="Rotação" Clicked="Rotacao" HorizontalOptions="Center" Margin="5"/>
+                    <Button Text="Transparência" Clicked="Transparencia" HorizontalOptions="Center" Margin="5"/>
+                </HorizontalStackLayout>
+
+                <Border HorizontalOptions="Center" Padding="2" StrokeShape="RoundRectangle, 15" Stroke="Black" Margin="0,0,0,5">
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Button Text="Sequencial" Clicked="Sequencial" HorizontalOptions="Center" Margin="5"/>
+                        <Button Text="Paralelo" Clicked="Paralelo" HorizontalOptions="Center" Margin="5"/>
+                        <Button Text="Cancelamento" Clicked="Cancelamento" HorizontalOptions="Center" Margin="5"/>
+                    </HorizontalStackLayout>
+                </Border>
+
+                <Border HorizontalOptions="Center" Padding="2" StrokeShape="RoundRectangle, 15" Stroke="Black" Margin="0,0,0,5">
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center" >
+                        <Button Text="Animação customizada" Clicked="Custom" HorizontalOptions="Center" Margin="5"/>
+                        <Button Text="Animação da Cor" Clicked="Cor" HorizontalOptions="Center" Margin="5"/>
+                    </HorizontalStackLayout>
+                </Border>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
