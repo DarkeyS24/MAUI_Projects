@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Utils.TriggerPage"
+             xmlns:converter="clr-namespace:AppMAUIGallery.Views.Utils.Converters"
+             xmlns:triggers="clr-namespace:AppMAUIGallery.Views.Utils.Triggers"
+             Title="TriggerPage">
+    <ContentPage.Resources>
+        <converter:MoreThanZeroConverter x:Key="MoreThanZeroConverter"/>
+        <Style TargetType="Entry">
+            <Style.Triggers>
+                <Trigger TargetType="Entry" Property="IsEnabled" Value="False">
+                    <Setter Property="BackgroundColor" Value="LightGray"/>
+                    <Setter Property="PlaceholderColor" Value="Black"/>
+                </Trigger>
+
+                <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                    <Setter Property="BackgroundColor" Value="LightBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry x:Name="entryText" Placeholder="Digite algo"/>
+        <HorizontalStackLayout>
+            <Label Text="{Binding Source={x:Reference entryText}, Path=Text.Length}"/>
+            <Label Text="/1000"/>
+        </HorizontalStackLayout>
+        <Button Text="Salvar" IsEnabled="False">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference entryText}, Path=Text.Length, Converter={StaticResource MoreThanZeroConverter}}" Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+
+        <Entry x:Name="entryAge" Placeholder="Digite sua idade">
+            <Entry.Triggers>
+                <EventTrigger Event="TextChanged">
+                    <triggers:AgeTrigger/>
+                </EventTrigger>
+            </Entry.Triggers>
+        </Entry>
+
+        <Entry x:Name="entryEmail" Placeholder="Digite seu email">
+            <Entry.Triggers>
+                <MultiTrigger TargetType="Entry">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition  Binding="{Binding Source={ x:Reference entryAge}, Path=Text}}" Value="18" />
+                        <PropertyCondition Property="Text" Value="angel.perez@gmail.com" />
+                    </MultiTrigger.Conditions>
+                    <Setter Property="BackgroundColor" Value="Green"/>
+                </MultiTrigger>
+            </Entry.Triggers>
+        </Entry>
+
+        <Button IsEnabled="False" Text="Salvar">
+            <Button.Triggers>
+                <MultiTrigger TargetType="Button">
+                    <MultiTrigger.Conditions>
+                        <BindingCondition Binding="{Binding Source={x:Reference entryAge}, Path=Text.Length, Converter={StaticResource MoreThanZeroConverter}}" Value="True"/>
+                        <BindingCondition Binding="{Binding Source={x:Reference entryEmail}, Path=Text.Length, Converter={StaticResource MoreThanZeroConverter}}" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="IsEnabled" Value="True"/>
+                </MultiTrigger>
+            </Button.Triggers>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

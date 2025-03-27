@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Utils.BehaviorPage"
+             xmlns:behaviors="clr-namespace:AppMAUIGallery.Views.Utils.NovaPasta"
+             Title="BehaviorPage">
+    
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Entry Placeholder="Digite o seu e-mail">
+            <Entry.Behaviors>
+                <behaviors:EmailValidationBehavior />
+            </Entry.Behaviors>
+        </Entry>
+
+        <Entry Placeholder="Digite a sua idade">
+            <Entry.Behaviors>
+                <behaviors:AgeValidationBehavior />
+            </Entry.Behaviors>
+        </Entry>
+    </VerticalStackLayout>
+</ContentPage>

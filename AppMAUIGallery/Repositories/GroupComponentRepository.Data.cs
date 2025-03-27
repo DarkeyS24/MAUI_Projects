@@ -11,6 +11,7 @@ using AppMAUIGallery.Views.Components.Mains;
 using AppMAUIGallery.Views.Layouts;
 using AppMAUIGallery.Views.Lists;
 using AppMAUIGallery.Views.Styles;
+using AppMAUIGallery.Views.Utils;
 using AppMAUIGallery.Views.Visuals;
 
 namespace AppMAUIGallery.Repositories
@@ -30,6 +31,7 @@ namespace AppMAUIGallery.Repositories
             LoadCollectionsAndLists();
             LoadStyles();
             LoadAnimations();
+            LoadUtils();
         }
 
         private void LoadLayout()
@@ -408,6 +410,38 @@ namespace AppMAUIGallery.Repositories
             var group = new GroupComponent()
             {
                 Name = "Styles"
+            };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadUtils()
+        {
+            var components = new List<Component>
+                {
+                    new Component()
+                    {
+                        Name="Behavior",
+                        Description="Lógica que pode ser associada a um componente da tela.",
+                        Page = typeof(BehaviorPage)
+                    },
+                    new Component()
+                    {
+                        Name="Trigger",
+                        Description="Gatilho que dispara uma alteração visual no componente.",
+                        Page = typeof(TriggerPage)
+                    },
+                    new Component()
+                    {
+                        Name="OnPlatform/OnIdiom",
+                        Description="Define valores diferente entre o S.O. e também pelo tipo de dispositivo.",
+                        Page = typeof(PlatformIdiomPage)
+                    },
+                };
+            var group = new GroupComponent()
+            {
+                Name = "Utils"
             };
             group.AddRange(components);
 
