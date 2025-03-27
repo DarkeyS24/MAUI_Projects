@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMAUIGallery.Views.Utils.FontPage"
+             Title="FontPage">
+    <VerticalStackLayout Padding="10" Spacing="40">
+        <Label 
+            Text="So.Smooth"
+            VerticalOptions="Center"
+            FontSize="32"
+            FontFamily="FolditBolt"
+            HorizontalOptions="Center" />
+        
+        <Label 
+            Text="Very.Criminal"
+            VerticalOptions="Center"
+            FontSize="54"
+            FontFamily="FolditMedium"
+            HorizontalOptions="Center" />
+
+        <Image WidthRequest="100">
+            <Image.Source>
+                <FontImageSource FontFamily="Icons" Glyph="&#xf300;" Size="100" Color="Purple"/>
+            </Image.Source>
+        </Image>
+        
+        <Image WidthRequest="100">
+            <Image.Source>
+                <FontImageSource FontFamily="Icons" Glyph="&#xf309;" Size="100" Color="#00ACEE"/>
+            </Image.Source>
+        </Image>
+
+        <Image WidthRequest="100" >
+            <Image.Source>
+                <FontImageSource FontFamily="Facebook" Glyph="&#xf30e;" Size="200" Color="#1877F2"/>
+            </Image.Source>
+        </Image>
+    </VerticalStackLayout>
+</ContentPage>

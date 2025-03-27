@@ -438,6 +438,18 @@ namespace AppMAUIGallery.Repositories
                         Description="Define valores diferente entre o S.O. e também pelo tipo de dispositivo.",
                         Page = typeof(PlatformIdiomPage)
                     },
+                    new Component()
+                    {
+                        Name="Fonts",
+                        Description="Como usar fontes diferentes no nosso aplicativo.",
+                        Page = typeof(FontPage)
+                    },
+                    new Component()
+                    {
+                        Name="Color/Brush",
+                        Description="Como colocar as cores nos seus componentes.",
+                        Page = typeof(ColorPage)
+                    },
                 };
             var group = new GroupComponent()
             {
