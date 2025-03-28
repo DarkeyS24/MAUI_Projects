@@ -8,8 +8,9 @@ namespace AppMAUIGallery.Models
 {
     public class Component
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
         public Type Page { get; set; }
+        public bool ReplaceMainPage { get; set; } = true;
     }
 }

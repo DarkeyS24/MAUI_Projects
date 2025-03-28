@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:AppMAUIGallery.Views.CommunityMaui.ViewModels"
+             x:Class="AppMAUIGallery.Views.CommunityMaui.CommunityBehaviorsPage"
+             Title="BehaviorsPage">
+    <ContentPage.BindingContext>
+        <vm:CommunityBehaviorPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="Black" StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <VerticalStackLayout Padding="15" Spacing="15">
+        <Entry Placeholder="Telefone" Keyboard="Numeric">
+            <Entry.Behaviors>
+                <toolkit:MaskedBehavior Mask="(00) 00000-0000" UnmaskedCharacter="0"/>
+            </Entry.Behaviors>
+        </Entry>
+
+        <Entry Placeholder="CPF" Keyboard="Numeric">
+            <Entry.Behaviors>
+                <toolkit:MaskedBehavior Mask="000.000.000-00" UnmaskedCharacter="0"/>
+            </Entry.Behaviors>
+        </Entry>
+
+        <Button Text="Chamar um Command sem o Behavior" Pressed="OnPressed"/>
+        <Button Text="Chamar um Command com o EventToCommandBehavior">
+            <Button.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="Pressed" Command="{Binding PressedCommand}"/>
+            </Button.Behaviors>
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

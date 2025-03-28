@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppMAUIGallery.Views.CommunityMaui.ExpanderPage"
+             Title="ExpanderPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="15">
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Border Padding="10" BackgroundColor="LightGray">
+                        <Label Text="Titulo 1" HorizontalOptions="Center"/>
+                    </Border>
+                </toolkit:Expander.Header>
+                <Border Padding="10">
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non justo nec neque cursus molestie. Suspendisse potenti. Nullam aliquam, lacus quis faucibus vehicula, sapien nisl feugiat velit, in dictum arcu purus et risus. Integer volutpat orci in bibendum vehicula. Fusce semper convallis velit sit amet dictum. Curabitur vulputate turpis vel neque hendrerit, id finibus justo condimentum. Ut a ipsum vel turpis volutpat vestibulum. Mauris non ligula ac lectus auctor auctor vitae eu velit. Nam efficitur, purus ut facilisis varius, neque magna consequat nulla, vitae pellentesque eros odio in ligula. Donec efficitur consequat sapien, a vehicula ipsum volutpat nec. Vivamus ultricies, magna et elementum iaculis, nibh mi congue ipsum, eu fermentum magna sapien nec lacus. Fusce tincidunt, augue ac lobortis auctor, nulla risus iaculis quam, nec tincidunt justo libero quis arcu. Integer sagittis orci quam, sed sodales mi lacinia at. Etiam accumsan nisl ut erat accumsan mollis."/>
+                </Border>
+            </toolkit:Expander>
+
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Border Padding="10" BackgroundColor="LightGray">
+                        <Label Text="Titulo 2" HorizontalOptions="Center"/>
+                    </Border>
+                </toolkit:Expander.Header>
+                <Border Padding="10">
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non justo nec neque cursus molestie. Suspendisse potenti. Nullam aliquam, lacus quis faucibus vehicula, sapien nisl feugiat velit, in dictum arcu purus et risus. Integer volutpat orci in bibendum vehicula. Fusce semper convallis velit sit amet dictum. Curabitur vulputate turpis vel neque hendrerit, id finibus justo condimentum. Ut a ipsum vel turpis volutpat vestibulum. Mauris non ligula ac lectus auctor auctor vitae eu velit. Nam efficitur, purus ut facilisis varius, neque magna consequat nulla, vitae pellentesque eros odio in ligula. Donec efficitur consequat sapien, a vehicula ipsum volutpat nec. Vivamus ultricies, magna et elementum iaculis, nibh mi congue ipsum, eu fermentum magna sapien nec lacus. Fusce tincidunt, augue ac lobortis auctor, nulla risus iaculis quam, nec tincidunt justo libero quis arcu. Integer sagittis orci quam, sed sodales mi lacinia at. Etiam accumsan nisl ut erat accumsan mollis."/>
+                </Border>
+            </toolkit:Expander>
+
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Border Padding="10" BackgroundColor="LightGray">
+                        <Label Text="Titulo 3" HorizontalOptions="Center"/>
+                    </Border>
+                </toolkit:Expander.Header>
+                <Border Padding="10">
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non justo nec neque cursus molestie. Suspendisse potenti. Nullam aliquam, lacus quis faucibus vehicula, sapien nisl feugiat velit, in dictum arcu purus et risus. Integer volutpat orci in bibendum vehicula. Fusce semper convallis velit sit amet dictum. Curabitur vulputate turpis vel neque hendrerit, id finibus justo condimentum. Ut a ipsum vel turpis volutpat vestibulum. Mauris non ligula ac lectus auctor auctor vitae eu velit. Nam efficitur, purus ut facilisis varius, neque magna consequat nulla, vitae pellentesque eros odio in ligula. Donec efficitur consequat sapien, a vehicula ipsum volutpat nec. Vivamus ultricies, magna et elementum iaculis, nibh mi congue ipsum, eu fermentum magna sapien nec lacus. Fusce tincidunt, augue ac lobortis auctor, nulla risus iaculis quam, nec tincidunt justo libero quis arcu. Integer sagittis orci quam, sed sodales mi lacinia at. Etiam accumsan nisl ut erat accumsan mollis."/>
+                </Border>
+            </toolkit:Expander>
+
+            <toolkit:Expander>
+                <toolkit:Expander.Header>
+                    <Border Padding="10" BackgroundColor="LightGray">
+                        <Label Text="Titulo 4" HorizontalOptions="Center"/>
+                    </Border>
+                </toolkit:Expander.Header>
+                <Border Padding="10">
+                    <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non justo nec neque cursus molestie. Suspendisse potenti. Nullam aliquam, lacus quis faucibus vehicula, sapien nisl feugiat velit, in dictum arcu purus et risus. Integer volutpat orci in bibendum vehicula. Fusce semper convallis velit sit amet dictum. Curabitur vulputate turpis vel neque hendrerit, id finibus justo condimentum. Ut a ipsum vel turpis volutpat vestibulum. Mauris non ligula ac lectus auctor auctor vitae eu velit. Nam efficitur, purus ut facilisis varius, neque magna consequat nulla, vitae pellentesque eros odio in ligula. Donec efficitur consequat sapien, a vehicula ipsum volutpat nec. Vivamus ultricies, magna et elementum iaculis, nibh mi congue ipsum, eu fermentum magna sapien nec lacus. Fusce tincidunt, augue ac lobortis auctor, nulla risus iaculis quam, nec tincidunt justo libero quis arcu. Integer sagittis orci quam, sed sodales mi lacinia at. Etiam accumsan nisl ut erat accumsan mollis."/>
+                </Border>
+            </toolkit:Expander>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

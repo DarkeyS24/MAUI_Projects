@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppMAUIGallery.Views.CommunityMaui.MediaElementPage"
+             Title="MediaElementPage">
+    <VerticalStackLayout Margin="100">
+        <toolkit:MediaElement x:Name="player" HeightRequest="230" WidthRequest="410" VerticalOptions="Center" Source="https://static.videezy.com/system/resources/previews/000/022/153/original/4k-laser-beams-animation-loop.mp4" ShouldLoopPlayback="False" ShouldShowPlaybackControls="False" ShouldAutoPlay="False"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Margin="15">
+            <Button Text="Play" Clicked="OnClickedToPlay"/>
+            <Button Text="Pause" Clicked="OnClickedToPause"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

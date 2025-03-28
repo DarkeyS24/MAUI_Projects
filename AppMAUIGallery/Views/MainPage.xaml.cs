@@ -23,19 +23,23 @@ public partial class MainPage : ContentPage
     private void OnTapComponent(object sender, TappedEventArgs e)
     {
         KeyboardFix.HideKeyboard();
-        var page = (Type)e.Parameter;
-        if (page != null)
+        var component = (Component)e.Parameter;
+        if (component.ReplaceMainPage == false)
         {
             if (Application.Current.Windows.Count > 0)
             {
                 var flyoutPage = Application.Current.Windows[0].Page as FlyoutPage;
                 if (flyoutPage != null)
                 {
-                    var pageInstance = (Page)Activator.CreateInstance(page);
+                    var pageInstance = (Page)Activator.CreateInstance(component.Page);
                     flyoutPage.Detail = new NavigationPage(pageInstance);
                     flyoutPage.IsPresented = false;
                 }
             }
+        }
+        else
+        {
+            Application.Current.Windows[0].Page = (Page)Activator.CreateInstance(component.Page);
         }
     }
     private void Entry_TextChanged(object sender, TextChangedEventArgs e)
