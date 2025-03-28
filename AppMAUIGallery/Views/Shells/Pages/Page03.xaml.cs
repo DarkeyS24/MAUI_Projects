@@ -1,4 +1,4 @@
-namespace AppMAUIGallery.Views.Shells;
+namespace AppMAUIGallery.Views.Shells.Pages;
 
 public partial class Page03 : ContentPage
 {

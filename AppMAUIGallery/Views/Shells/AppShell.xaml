@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-       xmlns:pages="clr-namespace:AppMAUIGallery.Views.Shells.Pages"     
+       xmlns:pages="clr-namespace:AppMAUIGallery.Views.Shells.Pages"    
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        x:Class="AppMAUIGallery.Views.Shells.AppShell">
 
     <TabBar>
-        <pages:Page01 Title="N.01 - First Page"/>
+        <ShellContent Title="N.01 - First Page" Icon="filter1.png" ContentTemplate="{DataTemplate pages:Page01}"/>
+        <ShellContent Title="N.02 - Second Page" Icon="filter2.png" ContentTemplate="{DataTemplate pages:Page02}"/>
+        <ShellContent Title="N.03 - Third Page" Icon="filter3.png" ContentTemplate="{DataTemplate pages:Page03}"/>
+        <ShellContent Title="N.04 - Fourth Page" Icon="filter4.png" ContentTemplate="{DataTemplate pages:Page04}"/>
+        <ShellContent Title="N.05 - Fifth Page" Icon="filter5.png" ContentTemplate="{DataTemplate pages:Page05}"/>
     </TabBar>
 </Shell>
