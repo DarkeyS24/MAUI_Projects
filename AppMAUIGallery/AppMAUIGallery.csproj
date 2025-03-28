@@ -83,6 +83,9 @@
 	  <Compile Update="Views\Shells\AppShell.xaml.cs">
 	    <DependentUpon>AppShell.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\Shells\Pages\Page04.xaml.cs">
+	    <DependentUpon>Page04.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\Styles\InheritanceStyle.xaml.cs">
 	    <DependentUpon>InheritanceStyle.xaml</DependentUpon>
 	  </Compile>
