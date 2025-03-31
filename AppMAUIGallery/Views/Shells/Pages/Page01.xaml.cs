@@ -6,4 +6,9 @@ public partial class Page01 : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void GoToStep1(object sender, EventArgs e)
+    {
+		Shell.Current.GoToAsync("Page01Step01");
+    }
 }

@@ -3,10 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMAUIGallery.Views.Shells.Pages.Page02"
              Title="Page02">
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="15">
         <Label 
             Text="02"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button Text="Vá para o passo 1 com parâmetros(Simples)" Margin="40,0" Clicked="GoToStep01WithSimpleParameters"/>
+        <Button Text="Vá para o passo 1 com parâmetros(Complexos)" Margin="40,0" Clicked="GoToStep01WithComplexParameters"/>
     </VerticalStackLayout>
 </ContentPage>

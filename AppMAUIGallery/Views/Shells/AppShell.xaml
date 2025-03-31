@@ -2,8 +2,9 @@
 <Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
        xmlns:pages="clr-namespace:AppMAUIGallery.Views.Shells.Pages"    
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       Shell.TabBarIsVisible="False"
        x:Class="AppMAUIGallery.Views.Shells.AppShell">
-
+    <!--
     <TabBar>
         <ShellContent Title="N.01 - First Page" Icon="filter1.png" ContentTemplate="{DataTemplate pages:Page01}"/>
         <ShellContent Title="N.02 - Second Page" Icon="filter2.png" ContentTemplate="{DataTemplate pages:Page02}"/>
@@ -11,4 +12,75 @@
         <ShellContent Title="N.04 - Fourth Page" Icon="filter4.png" ContentTemplate="{DataTemplate pages:Page04}"/>
         <ShellContent Title="N.05 - Fifth Page" Icon="filter5.png" ContentTemplate="{DataTemplate pages:Page05}"/>
     </TabBar>
+    -->
+
+    <!--
+    <FlyoutItem Title="N.01 - First Page" FlyoutIcon="filter1.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page01}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="N.02 - Second Page" FlyoutIcon="filter2.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page02}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="N.03 - Third Page" FlyoutIcon="filter3.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page03}"/>
+    </FlyoutItem>
+
+    <FlyoutItem  Title="N.04 - Fourth Page" FlyoutIcon="filter4.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page04}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="N.05 - Fifth Page" FlyoutIcon="filter5.png">
+        <ShellContent ContentTemplate="{DataTemplate pages:Page05}"/>
+    </FlyoutItem>
+    -->
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="*, 40" Padding="20, 0">
+                <Label Text="{Binding Title}" TextColor="Black"/>
+                <Image Source="{Binding Icon}" Grid.Column="1" Margin="5"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="*, 40" Padding="20, 0">
+                <Label Text="{Binding Title}" TextColor="Black"/>
+                <Image Source="{Binding Icon}" Grid.Column="1" Margin="5"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+    
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="15">
+            <Image Source="main.png" HeightRequest="70"/>
+            <Label Text="Angel Perez" HorizontalTextAlignment="Center" FontSize="10" TextColor="Black"/>
+            <Label Text="angel@gmail.com" HorizontalTextAlignment="Center" FontSize="10" TextColor="Gray"/>
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    
+    <!--
+    <Shell.FlyoutContent>
+    <Label Text="Text"/>
+    </Shell.FlyoutContent>
+    -->
+    
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="N.01 - First Page" Route="Page01" Icon="filter1.png" ContentTemplate="{DataTemplate pages:Page01}"/>
+        <ShellContent Title="N.02 - Second Page" Route="Page02" Icon="filter2.png" ContentTemplate="{DataTemplate pages:Page02}"/>
+        <ShellContent Title="N.03 - Third Page" Route="Page03" Icon="filter3.png" ContentTemplate="{DataTemplate pages:Page03}"/>
+        <Tab Title="4 e 5" Icon="main.png" Route="Register" >
+            <ShellContent Title="N.04 - Fourth Page" Route="Step01" Icon="filter4.png" ContentTemplate="{DataTemplate pages:Page04}"/>
+            <ShellContent Title="N.05 - Fifth Page" Route="Step02" Icon="filter5.png" ContentTemplate="{DataTemplate pages:Page05}"/>
+        </Tab>
+    </FlyoutItem>
+
+    <MenuItem IconImageSource="logout.png" Text="Sair" Clicked="BackToGallery"></MenuItem>
+
+    <Shell.FlyoutFooter>
+        <Label Text="Version 1.0.2" FontSize="12" Padding="10"/>
+    </Shell.FlyoutFooter>
 </Shell>
