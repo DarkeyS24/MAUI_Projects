@@ -1,9 +1,9 @@
 namespace AppShoppingCenter.Views.Restaurants;
 
-public partial class ListPage : ContentPage
+public partial class DetailPage : ContentPage
 {
-	public ListPage()
+	public DetailPage()
 	{
 		InitializeComponent();
-    }
+	}
 }

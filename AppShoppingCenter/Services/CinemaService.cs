@@ -11,10 +11,7 @@ namespace AppShoppingCenter.Services
     {
         public List<Movie> GetMovies()
         {
-            return new()
-            {
-
-            };
+            return MockCinemaService.GetMovies();
         }
     }
 

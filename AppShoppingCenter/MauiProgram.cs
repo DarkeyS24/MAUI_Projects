@@ -20,6 +20,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Light.ttf", "OpenSansLight");
 			});
 		builder.Services.AddSingleton<StoreService>();
+		builder.Services.AddSingleton<RestaurantService>();
+		builder.Services.AddSingleton<CinemaService>();
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
