@@ -6,12 +6,25 @@
     <Style TargetType="Label" x:Key="PrimaryText">
         <Setter Property="TextColor" Value="#000000"/>
         <Setter Property="FontFamily" Value="OpenSansBold"/>
+        <Setter Property="TextTransform" Value="Uppercase"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
     
     <Style TargetType="Label" x:Key="SecondaryText">
         <Setter Property="TextColor" Value="#A0A0A0"/>
         <Setter Property="FontFamily" Value="OpenSansLight"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="HeadingText">
+        <Setter Property="TextColor" Value="#000000"/>
+        <Setter Property="FontFamily" Value="OpenSansBold"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="DetailText">
+        <Setter Property="TextColor" Value="#000000"/>
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
 </ResourceDictionary>

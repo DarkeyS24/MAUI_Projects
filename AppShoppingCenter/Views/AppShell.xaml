@@ -8,6 +8,7 @@
     xmlns:cinemas="clr-namespace:AppShoppingCenter.Views.Cinemas"
     xmlns:ticket="clr-namespace:AppShoppingCenter.Views.Tickets"
     Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
     Title="AppShoppingCenter">
 
     <TabBar>

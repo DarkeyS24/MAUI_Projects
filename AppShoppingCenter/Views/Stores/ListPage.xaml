@@ -10,7 +10,7 @@
         <vm:ListPageViewModel x:Name="vm"/>
     </ContentPage.BindingContext>
     
-    <Grid Padding="20" RowDefinitions="50,*">
+    <Grid Padding="20,20,20,0" RowDefinitions="50,*">
         <Border Grid.Row="0" StrokeShape="RoundRectangle 5">
             <Entry Placeholder="Pesquisar por loja" Text="{Binding TextSearch}" >
             <Entry.Behaviors>
@@ -27,7 +27,8 @@
         
 
         <ScrollView Grid.Row="1" Margin="0,20,0,0">
-            <CollectionView ItemsSource="{Binding EstablishmentsFiltered}">
+            <CollectionView ItemsSource="{Binding EstablishmentsFiltered}" EmptyView="Nenhum registro encontrado
+                            ">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout>

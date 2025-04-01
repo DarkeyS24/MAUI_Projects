@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AppShoppingCenter.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AppShoppingCenter.ViewModels.Stores
 {
@@ -13,5 +14,11 @@ namespace AppShoppingCenter.ViewModels.Stores
     {
         [ObservableProperty]
         private Establishment establishment;
+
+        [RelayCommand]
+        private void OnTapToBack()
+        {
+            Shell.Current.GoToAsync("..");
+        }
     }
 }
