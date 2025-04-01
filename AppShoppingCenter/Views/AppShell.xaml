@@ -3,13 +3,17 @@
     x:Class="AppShoppingCenter.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AppShoppingCenter"
+    xmlns:stores="clr-namespace:AppShoppingCenter.Views.Stores"
+    xmlns:restaurants="clr-namespace:AppShoppingCenter.Views.Restaurants"
+    xmlns:cinemas="clr-namespace:AppShoppingCenter.Views.Cinemas"
+    xmlns:ticket="clr-namespace:AppShoppingCenter.Views.Tickets"
     Shell.FlyoutBehavior="Disabled"
     Title="AppShoppingCenter">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <ShellContent Title="Lojas" Icon="store.png" ContentTemplate="{DataTemplate stores:ListPage}" Route="stores"/>
+        <ShellContent Title="Restaurantes" Icon="restaurant.png" ContentTemplate="{DataTemplate restaurants:ListPage}" Route="restaurants" />
+        <ShellContent Title="Cinema" Icon="cinema.png" ContentTemplate="{DataTemplate cinemas:ListPage}" Route="cinemas"/>
+        <ShellContent Title="Tickets" Icon="ticket.png" ContentTemplate="{DataTemplate ticket:ScanPage}" Route="tickets"/>
+     </TabBar>
 </Shell>

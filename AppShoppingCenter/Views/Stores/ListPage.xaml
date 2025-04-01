@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Stores"
+             xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="AppShoppingCenter.Views.Stores.ListPage"
+             Title="ListPage">
+    
+    <ContentPage.BindingContext>
+        <vm:ListPageViewModel x:Name="vm"/>
+    </ContentPage.BindingContext>
+    
+    <Grid Padding="20" RowDefinitions="50,*">
+        <Border Grid.Row="0" StrokeShape="RoundRectangle 5">
+            <Entry Placeholder="Pesquisar por loja" Text="{Binding TextSearch}" >
+            <Entry.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding TextSearchChangedFilterListCommand}"/>
+            </Entry.Behaviors>
+        </Entry>
+            <Border.Stroke>
+                <LinearGradientBrush EndPoint="1,1">
+                    <GradientStop Color="#F5AF19" Offset="0.1"/>
+                    <GradientStop Color="#FF0000" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Stroke>
+        </Border>
+        
+
+        <ScrollView Grid.Row="1" Margin="0,20,0,0">
+            <CollectionView ItemsSource="{Binding EstablishmentsFiltered}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Grid ColumnDefinitions="1*, 3*" RowDefinitions="20, 45" Margin="0,15">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:Reference vm}, Path=EstablishmentTapGoToDetailPageCommand}" CommandParameter="{Binding .}"/>
+                                </Grid.GestureRecognizers>
+                                
+                                <Image Source="{Binding Logo}" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,13,0"/>
+
+                                <Label Text="{Binding Name}"  Grid.Column="1" Style="{StaticResource PrimaryText}" Grid.Row="0"/>
+
+                                <Label Text="{Binding Description}" VerticalOptions="End" Grid.Column="1" Grid.Row="1" FontSize="12" MaxLines="2" Style="{StaticResource SecondaryText}"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>
