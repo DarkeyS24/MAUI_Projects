@@ -8,14 +8,21 @@
         <vm:DetailPageViewModel/>
     </ContentPage.BindingContext>
     <ScrollView>
-         <VerticalStackLayout>
-            <Image Source="{Binding Establishment.Cover}"/>
-            <Image Source="{Binding Establishment.Logo}" WidthRequest="70" HeightRequest="70"/>
-            <Label Text="{Binding Establishment.Name}" HorizontalOptions="Center" />
-            <Label Text="{Binding Establishment.Description}"/>
-            <Label Text="{Binding Establishment.Localization}"/>
-            <Label Text="{Binding Establishment.Phone}"/>
-        </VerticalStackLayout>
+        <Grid>
+            
+        <Image Source="{Binding Establishment.Cover}" VerticalOptions="Start"/>
+            <Border BackgroundColor="White" StrokeShape="RoundRectangle 30,30,0,0" StrokeThickness="0" Margin="0,250,0,0">
+                <Grid Padding="20" ColumnDefinitions="1*,1*,5*" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
+                    <Image Source="{Binding Establishment.Logo}" Grid.ColumnSpan="2"/>
+                    <Label Text="{Binding Establishment.Name}" HorizontalOptions="Center" Grid.Column="2" Style="{StaticResource PrimaryText}"/>
+                    <Label Text="{Binding Establishment.Description}" Grid.Row="1" Grid.ColumnSpan="3"  Style="{StaticResource SecondaryText}"/>
+                    <Label Text="Localização" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Label Text="{Binding Establishment.Localization}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Label Text="Telefone" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/>
+                    <Label Text="{Binding Establishment.Phone}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
+                </Grid>
+            </Border>
+        </Grid>
     </ScrollView>
    
 </ContentPage>
