@@ -29,12 +29,11 @@ namespace AppShoppingCenter.ViewModels.Tickets
         [RelayCommand]
         private void CheckTicketNumber()
         {
-            
-            var service = App.Current.Handler.MauiContext.Services.GetService<TicketService>();
             if (TicketNumber?.Length < 15)
             return;
 
             //Verificar se o codigo existe no Banco de Dados/API.
+            var service = App.Current.Handler.MauiContext.Services.GetService<TicketService>();
             var ticket = service.GetTicket(TicketNumber);
             if (ticket == null)
             {
