@@ -9,27 +9,34 @@
         <vm:ListPageViewModel x:Name="vm"/>
     </ContentPage.BindingContext>
     
-    <Grid RowDefinitions="70,*">
-        <VerticalStackLayout Padding="50,0,0,0" VerticalOptions="End">
-            <Label Text="CINEMIX"/>   
-            <Label Text="Em cartaz"/>
-        </VerticalStackLayout>
-        
-        <CarouselView Grid.Row="1" ItemsSource="{Binding Movies}">
+    <Grid RowDefinitions="*">
+        <Image Source="cinemafundo.jpg" WidthRequest="{OnIdiom Tablet=900, Phone=450}" VerticalOptions="Start"/>
+
+        <CarouselView Grid.Row="1" ItemsSource="{Binding Movies}" PeekAreaInsets="20">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="0" Orientation="Horizontal" SnapPointsAlignment="Center" SnapPointsType="Mandatory"/>
+            </CarouselView.ItemsLayout>
             <CarouselView.ItemTemplate>
                 <DataTemplate>
-                    <VerticalStackLayout>
-                        <VerticalStackLayout.GestureRecognizers>
+                    <Grid RowDefinitions="*,25,50" Padding="150" RowSpacing="10">
+                        <Grid.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding Source={x:Reference vm}, Path=TapMovieGoToDetailPageCommand}" CommandParameter="{Binding .}"/>
-                        </VerticalStackLayout.GestureRecognizers>
-                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 30">
-                            <Image Source="{Binding Cover}"/>
+                        </Grid.GestureRecognizers>
+                        <Border StrokeThickness="0" StrokeShape="RoundRectangle 30" WidthRequest="{OnIdiom Tablet=400, Phone=200}" HeightRequest="{OnIdiom Tablet=600, Phone=300}">
+                            <Image Source="{Binding Cover}" WidthRequest="{OnIdiom Tablet=600, Phone=300}" HeightRequest="{OnIdiom Tablet=600, Phone=300}"/>
                         </Border>
-                        <Label Text="{Binding Duration}"/>
-                        <Label Text="{Binding Title}"/>
-                    </VerticalStackLayout>
+                        <HorizontalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center" >
+                            <Image Source="clock.png" WidthRequest="{OnIdiom Tablet=30, Phone=19}"/>
+                            <Label Text="{Binding Duration}" FontSize="{OnIdiom Tablet=20, Phone=14}"/>
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding Title}" FontSize="{OnIdiom Tablet=20, Phone=14}" HorizontalTextAlignment="Center"  HorizontalOptions="Center" Grid.Row="2" Style="{StaticResource PrimaryText}"/>
+                    </Grid>
                 </DataTemplate>
             </CarouselView.ItemTemplate>
         </CarouselView>
+        <VerticalStackLayout Padding="50,30,0,0" VerticalOptions="Start">
+            <Label Text="CINEMIX" Style="{StaticResource PrimaryText}" FontSize="{OnIdiom Tablet=26, Phone=14}" TextColor="White"/>
+            <Label Text="Em cartaz" Style="{StaticResource SecondaryText}" FontSize="{OnIdiom Tablet=20, Phone=14}" TextColor="White"/>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

@@ -27,4 +27,16 @@
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
+    
+    <Style TargetType="Label" x:Key="CinemaDetailText">
+        <Setter Property="TextColor" Value="#404040"/>
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+    
+    <Style TargetType="Label" x:Key="CinemaDurationText">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontFamily" Value="OpenSansLight"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=18, Phone=12}"/>
+    </Style>
 </ResourceDictionary>
