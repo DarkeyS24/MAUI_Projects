@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Tickets"
+             x:Class="AppShoppingCenter.Views.Tickets.PayPage"
+             Title="PayPage">
+    <ContentPage.BindingContext>
+        <vm:PayPageViewModel x:Name="vm"/>
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Padding="20">
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Style="{StaticResource TicketHeadingText}" Text="Pague seu&#x0a;"></Span>
+                    <Span Style="{StaticResource TicketHeadingText02}">Estacionamento</Span>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Border StrokeDashArray="5,5" Padding="20">
+            <VerticalStackLayout>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span>Ticket #</Span>
+                            <Span Text="{Binding Ticket.TicketNumber}"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span>Permanência: </Span>
+                            <Span>3h 10m</Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span>Entrada: </Span>
+                            <Span Text="{Binding Ticket.DateIn}"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span>Saída: </Span>
+                            <Span Text="{Binding Ticket.DateOut}"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span FontAttributes="Bold">Valor: </Span>
+                            <Span FontAttributes="Bold" Text="{Binding Ticket.Price}"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+        </Border>
+
+        <Border StrokeDashArray="5,5" Padding="20">
+            <VerticalStackLayout>
+                <Label Text="PIX"/>
+                <Label Text="QR Code"/>
+                <Image/>
+                <Label Text="Copie e Cole"/>
+                <Border Style="{StaticResource BorderStyle}">
+                    <Entry IsReadOnly="True" Text="00020126360014BR.GOV.BCB.PIX0114+5561999..."/>
+                </Border>
+                <Button Style="{StaticResource ButtonStyle}" Text="Copiar codigo pix"/>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>

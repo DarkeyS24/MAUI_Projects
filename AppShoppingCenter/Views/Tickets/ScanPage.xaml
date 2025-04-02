@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Tickets"
              x:Class="AppShoppingCenter.Views.Tickets.ScanPage"
              Title="ScanPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <vm:ScanPageViewModel x:Name="vm"/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Style="{StaticResource TicketHeadingText}" Text="Pague seu&#x0a;"></Span>
+                        <Span Style="{StaticResource TicketHeadingText02}">Estacionamento</Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Border Style="{StaticResource BorderStyle}" Margin="0,50,0,0">
+                <StackLayout Orientation="Horizontal" Padding="5">
+                    <Entry HorizontalOptions="FillAndExpand" Placeholder="Escanear ticket" Text="{Binding TicketNumber}">
+                        <Entry.Behaviors>
+                            <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding CheckTicketNumberCommand}"/>
+                            <toolkit:MaskedBehavior Mask="000 000 000 000" UnmaskedCharacter="0"/>
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image 
+                Margin="0,0,10,0"
+                Source="camera.png"
+                VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ScanCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </Border>
+            <Button Style="{StaticResource ButtonStyle}" VerticalOptions="EndAndExpand" Margin="0,0,0,30" Text="Tickets pagos" Command="{Binding ListCommand}"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

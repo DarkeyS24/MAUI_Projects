@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
     
     <Grid RowDefinitions="*">
-        <Image Source="cinemafundo.jpg" WidthRequest="{OnIdiom Tablet=900, Phone=450}" VerticalOptions="Start"/>
+        <Image Source="cinemafundo.jpg" Aspect="AspectFill" WidthRequest="{OnIdiom Tablet=900, Phone=450}" VerticalOptions="Start"/>
 
         <CarouselView Grid.Row="1" ItemsSource="{Binding Movies}" PeekAreaInsets="20">
             <CarouselView.ItemsLayout>

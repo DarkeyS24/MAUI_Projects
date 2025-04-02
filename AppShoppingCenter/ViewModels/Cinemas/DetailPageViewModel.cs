@@ -15,5 +15,12 @@ namespace AppShoppingCenter.ViewModels.Cinemas
     {
         [ObservableProperty]
         private Movie movie;
+
+        [RelayCommand]
+        private void OnTapCloseDetailPage(MediaElement player)
+        {
+            player.Stop();
+            Shell.Current.GoToAsync("..");
+        }
     }
 }

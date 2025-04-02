@@ -14,7 +14,8 @@
         <Image 
             Source="{Binding Movie.Cover}"
             VerticalOptions="Start"
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" 
+            Aspect="AspectFill"/>
 
         <media:MediaElement x:Name="player" IsVisible="False" ShouldLoopPlayback="True" Source="{Binding Movie.Trailer}" VerticalOptions="Start" HeightRequest="{OnIdiom Tablet=500, Phone=320}" ShouldShowPlaybackControls="False"/>
 
@@ -26,7 +27,7 @@
         
         <Image Source="close.png" VerticalOptions="Start" WidthRequest="{OnIdiom Tablet=35, Phone=29}"  HorizontalOptions="Start" Margin="{OnIdiom Tablet=25, Phone=20}">
             <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="OnTapCloseDetailPage"/>
+                <TapGestureRecognizer Command="{Binding TapCloseDetailPageCommand}" CommandParameter="{x:Reference player}"/>
             </Image.GestureRecognizers>
         </Image>
 

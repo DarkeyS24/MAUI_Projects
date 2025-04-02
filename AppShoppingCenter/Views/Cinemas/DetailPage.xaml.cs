@@ -38,10 +38,4 @@ public partial class DetailPage : ContentPage
 			playPauseBtn.Source = ImageSource.FromFile("pause.png");
 		}
     }
-
-    private void OnTapCloseDetailPage(object sender, TappedEventArgs e)
-    {
-        player.Pause();
-        Shell.Current.GoToAsync("..");
-    }
 }
