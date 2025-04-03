@@ -7,7 +7,7 @@
         <Setter Property="TextColor" Value="#000000"/>
         <Setter Property="FontFamily" Value="OpenSansBold"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=16, Default=14}"/>
     </Style>
     
     <Style TargetType="Label" x:Key="SecondaryText">
@@ -46,10 +46,12 @@
     
     <Style TargetType="Label" x:Key="TicketHeadingText" BasedOn="{StaticResource HeadingBase}">
         <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=38, Default=14}"/>
     </Style>
 
     <Style TargetType="Label" x:Key="TicketHeadingText02" BasedOn="{StaticResource HeadingBase}">
-        <Setter Property="TextColor" Value="#FF5524"/>
+        <Setter Property="TextColor" Value="#F86237"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=38, Default=14}"/>
         <Setter Property="TextTransform" Value="Uppercase"/>
     </Style>
 
@@ -59,11 +61,35 @@
         <Setter Property="StrokeThickness" Value="1"/>
     </Style>
 
+    <Style TargetType="Border" x:Key="BorderDotStyle">
+        <Setter Property="Stroke" Value="Black"/>
+        <Setter Property="StrokeDashArray" Value="5,5"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
     <Style TargetType="Button" x:Key="ButtonStyle">
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="BackgroundColor" Value="#FF5524"/>
+        <Setter Property="BackgroundColor" Value="#F86237"/>
         <Setter Property="HeightRequest" Value="50"/>
         <Setter Property="CornerRadius" Value="25"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="SuccessText">
+        <Setter Property="TextColor" Value="#1BAB42"/>
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=32, Phone=24, Default=24}"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="ToleranceText">
+        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=28, Default=20}"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="MaxTimeText">
+        <Setter Property="TextColor" Value="#F86237"/>
+        <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=38, Default=32}"/>
     </Style>
 </ResourceDictionary>

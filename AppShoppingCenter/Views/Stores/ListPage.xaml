@@ -12,7 +12,7 @@
     
     <Grid Padding="20,20,20,0" RowDefinitions="50,*">
         <Border Grid.Row="0" StrokeShape="RoundRectangle 5">
-            <Entry Placeholder="Pesquisar por loja" Text="{Binding TextSearch}" >
+            <Entry Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" Placeholder="Pesquisar por loja" Text="{Binding TextSearch}" >
             <Entry.Behaviors>
                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding TextSearchChangedFilterListCommand}"/>
             </Entry.Behaviors>

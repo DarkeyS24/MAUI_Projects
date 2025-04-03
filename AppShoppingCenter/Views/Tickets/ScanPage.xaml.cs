@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Core.Platform;
+
 namespace AppShoppingCenter.Views.Tickets;
 
 public partial class ScanPage : ContentPage
@@ -6,4 +8,10 @@ public partial class ScanPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void CursorFix(object sender, TextChangedEventArgs e)
+    {
+		Entry input = (Entry)sender;
+		input.CursorPosition = input.Text.Length;
+    }
 }

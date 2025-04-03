@@ -20,9 +20,9 @@
             </Label>
             <Border Style="{StaticResource BorderStyle}" Margin="0,50,0,0">
                 <StackLayout Orientation="Horizontal" Padding="5">
-                    <Entry HorizontalOptions="FillAndExpand" Placeholder="Escanear ticket" Text="{Binding TicketNumber}">
+                    <Entry Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" x:Name="entryTicket" TextChanged="CursorFix" HorizontalOptions="FillAndExpand" Placeholder="Escanear ticket" Text="{Binding TicketNumber}">
                         <Entry.Behaviors>
-                            <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding CheckTicketNumberCommand}"/>
+                            <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding CheckTicketNumberCommand}" CommandParameter="{x:Reference entryTicket}"/>
                             <toolkit:MaskedBehavior Mask="000 000 000 000" UnmaskedCharacter="0"/>
                         </Entry.Behaviors>
                     </Entry>

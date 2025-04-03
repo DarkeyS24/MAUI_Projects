@@ -9,6 +9,8 @@
     xmlns:ticket="clr-namespace:AppShoppingCenter.Views.Tickets"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
+    Shell.TabBarTitleColor="#F86237"
+    Shell.TabBarForegroundColor="#F86237"
     Title="AppShoppingCenter">
 
     <TabBar>

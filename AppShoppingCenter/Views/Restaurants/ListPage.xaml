@@ -18,7 +18,7 @@
                     <GradientStop Color="#FF0000" Offset="1.0"/>
                 </LinearGradientBrush>
             </Border.Stroke>
-            <Entry Placeholder="Pesquisar por restaurante" Text="{Binding SearchText}">
+            <Entry Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" Placeholder="Pesquisar por restaurante" Text="{Binding SearchText}">
                 <Entry.Behaviors>
                     <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchTextChangedCommand}"/>
                 </Entry.Behaviors>
