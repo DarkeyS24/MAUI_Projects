@@ -13,11 +13,14 @@
     <ContentPage.BindingContext>
         <vm:CameraPageViewModel x:Name="vm"/>
     </ContentPage.BindingContext>
-    <zxing:CameraBarcodeReaderView>
+    <!--<zxing:CameraBarcodeReaderView>
         <zxing:CameraBarcodeReaderView.Behaviors>
             <toolkit:EventToCommandBehavior EventName="BarCodeDetected" 
                                             Command="{Binding BarCodeDetectedCommand}" 
                                             EventArgsConverter="{StaticResource BarCodeArgsConverter}"/>
         </zxing:CameraBarcodeReaderView.Behaviors>
-    </zxing:CameraBarcodeReaderView>
+    </zxing:CameraBarcodeReaderView>-->
+    <zxing:CameraBarcodeReaderView
+  x:Name="cameraBarcodeReaderView"
+  BarcodesDetected="BarcodesDetected" />
 </ContentPage>
