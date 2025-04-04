@@ -14,9 +14,9 @@
     Title="AppShoppingCenter">
 
     <TabBar>
-        <ShellContent Title="Lojas" Icon="store.png" ContentTemplate="{DataTemplate stores:ListPage}" Route="stores"/>
-        <ShellContent Title="Restaurantes" Icon="restaurant.png" ContentTemplate="{DataTemplate restaurants:ListPage}" Route="restaurants" />
-        <ShellContent Title="Cinema" Icon="cinema.png" ContentTemplate="{DataTemplate cinemas:ListPage}" Route="cinemas"/>
-        <ShellContent Title="Tickets" Icon="ticket.png" ContentTemplate="{DataTemplate ticket:ScanPage}" Route="tickets"/>
+        <ShellContent SemanticProperties.Hint="Botão que enviara ao usuario para a tela de listagem das lojas" Title="Lojas" Icon="store.png" ContentTemplate="{DataTemplate stores:ListPage}" Route="stores"/>
+        <ShellContent SemanticProperties.Hint="Botão que enviara ao usuario para a tela de listagem dos restaurantes" Title="Restaurantes" Icon="restaurant.png" ContentTemplate="{DataTemplate restaurants:ListPage}" Route="restaurants" />
+        <ShellContent SemanticProperties.Hint="Botão que enviara ao usuario para a tela de listagem dos filmes do cinema" Title="Cinema" Icon="cinema.png" ContentTemplate="{DataTemplate cinemas:ListPage}" Route="cinemas"/>
+        <ShellContent SemanticProperties.Hint="Botão que enviara ao usuario para a tela de tickets" Title="Tickets" Icon="ticket.png" ContentTemplate="{DataTemplate ticket:ScanPage}" Route="tickets"/>
      </TabBar>
 </Shell>

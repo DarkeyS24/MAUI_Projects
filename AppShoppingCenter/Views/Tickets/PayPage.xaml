@@ -13,7 +13,7 @@
         <vm:PayPageViewModel x:Name="vm"/>
     </ContentPage.BindingContext>
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="10">
+        <VerticalStackLayout SemanticProperties.HeadingLevel="Level1" Padding="20" Spacing="10">
             <Label>
                 <Label.FormattedText>
                     <FormattedString>
@@ -25,7 +25,7 @@
 
             <Border Style="{StaticResource BorderDotStyle}" Padding="20" Margin="0,40,0,0">
                 <VerticalStackLayout Spacing="5">
-                    <Label>
+                    <Label SemanticProperties.HeadingLevel="Level2">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span FontSize="14">Ticket #</Span>
@@ -74,9 +74,10 @@
 
             <Border Style="{StaticResource BorderDotStyle}" Padding="20">
                 <VerticalStackLayout>
-                    <Label Text="PIX"/>
+                    <Label SemanticProperties.HeadingLevel="Level2" Text="PIX"/>
                     <Label Style="{StaticResource SecondaryText}" Text="QR Code"/>
                         <zxing:BarcodeGeneratorView
+                            SemanticProperties.Hint="Imagen com o QR code de pagamento via PIX"
                             HeightRequest="{OnIdiom Tablet=250, Phone=200, Desktop=200}"
                             WidthRequest="{OnIdiom Tablet=250, Phone=200, Desktop=200}"
                             ForegroundColor="Black"
@@ -85,9 +86,9 @@
                             Margin="3" />
                     <Label Text="Copie e Cole" Margin="0,5,0,0"/>
                     <Border Margin="0,5,0,15" Style="{StaticResource BorderStyle}">
-                        <Entry IsReadOnly="True" Text="{Binding PIXCode}"/>
+                        <Entry IsReadOnly="True" Text="{Binding PIXCode}" SemanticProperties.Hint="Campo contendo o codigo de pagamento via PIX"/>
                     </Border>
-                    <Button Style="{StaticResource ButtonStyle}" Command="{Binding CopyPIXCodeCommand}" Text="Copiar codigo pix"/>
+                    <Button SemanticProperties.Hint="Botão de copiar o codigo PIX" Style="{StaticResource ButtonStyle}" Command="{Binding CopyPIXCodeCommand}" Text="Copiar codigo pix"/>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

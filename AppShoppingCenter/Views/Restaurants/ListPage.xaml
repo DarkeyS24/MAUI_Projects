@@ -18,7 +18,7 @@
                     <GradientStop Color="#FF0000" Offset="1.0"/>
                 </LinearGradientBrush>
             </Border.Stroke>
-            <Entry Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" Placeholder="Pesquisar por restaurante" Text="{Binding SearchText}">
+            <Entry SemanticProperties.Hint="Digite para pesquisar pelo nome do restaurant" PlaceholderColor="{AppThemeBinding Light=Gray, Dark=White}" Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" Placeholder="Pesquisar por restaurante" Text="{Binding SearchText}">
                 <Entry.Behaviors>
                     <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchTextChangedCommand}"/>
                 </Entry.Behaviors>
@@ -34,8 +34,8 @@
                                 <TapGestureRecognizer Command="{Binding Source={x:Reference vm}, Path=RestaurantTapGoToDetailPageCommand}" CommandParameter="{Binding .}"/>
                             </Grid.GestureRecognizers>
 
-                            <Image Source="{Binding Logo}" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,13,0"/>
-                            <Label Text="{Binding Name}"  Grid.Column="1" Style="{StaticResource PrimaryText}" Grid.Row="0"/>
+                            <Image SemanticProperties.Hint="{Binding Name, StringFormat='Logomarca do restaurante {0}'}" Source="{Binding Logo}" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,13,0"/>
+                            <Label SemanticProperties.HeadingLevel="Level1"  Text="{Binding Name}"  Grid.Column="1" Style="{StaticResource PrimaryText}" Grid.Row="0"/>
                             <Label Text="{Binding Description}" VerticalOptions="End" Grid.Column="1" Grid.Row="1" FontSize="12" MaxLines="2" Style="{StaticResource SecondaryText}"/>
                         </Grid>
                     </VerticalStackLayout>

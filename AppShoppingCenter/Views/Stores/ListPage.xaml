@@ -12,7 +12,7 @@
     
     <Grid Padding="20,20,20,0" RowDefinitions="50,*">
         <Border Grid.Row="0" StrokeShape="RoundRectangle 5">
-            <Entry Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" Placeholder="Pesquisar por loja" Text="{Binding TextSearch}" >
+            <Entry SemanticProperties.Hint="Digite para pesquisar pelo nome da loja" PlaceholderColor="{AppThemeBinding Light=Gray, Dark=White}" Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" Placeholder="Pesquisar por loja" Text="{Binding TextSearch}" >
             <Entry.Behaviors>
                 <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding TextSearchChangedFilterListCommand}"/>
             </Entry.Behaviors>
@@ -27,8 +27,7 @@
         
 
         <ScrollView Grid.Row="1" Margin="0,20,0,0">
-            <CollectionView ItemsSource="{Binding EstablishmentsFiltered}" EmptyView="Nenhum registro encontrado
-                            ">
+            <CollectionView ItemsSource="{Binding EstablishmentsFiltered}" EmptyView="Nenhum registro encontrado">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout>
@@ -36,10 +35,10 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={x:Reference vm}, Path=EstablishmentTapGoToDetailPageCommand}" CommandParameter="{Binding .}"/>
                                 </Grid.GestureRecognizers>
-                                
-                                <Image Source="{Binding Logo}" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,13,0"/>
 
-                                <Label Text="{Binding Name}"  Grid.Column="1" Style="{StaticResource PrimaryText}" Grid.Row="0"/>
+                                <Image SemanticProperties.Hint="{Binding Name, StringFormat='Logomarca da loja {0}'}" Source="{Binding Logo}" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,13,0"/>
+
+                                <Label SemanticProperties.HeadingLevel="Level1" Text="{Binding Name}"  Grid.Column="1" Style="{StaticResource PrimaryText}" Grid.Row="0"/>
 
                                 <Label Text="{Binding Description}" VerticalOptions="End" Grid.Column="1" Grid.Row="1" FontSize="12" MaxLines="2" Style="{StaticResource SecondaryText}"/>
                             </Grid>

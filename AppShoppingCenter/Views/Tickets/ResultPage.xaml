@@ -13,11 +13,11 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout Padding="20">
-            <Label Text="ESTACIONAMENTO" FontSize="32" Style="{StaticResource TicketHeadingText02}"/>
+            <Label SemanticProperties.HeadingLevel="Level1" Text="ESTACIONAMENTO" FontSize="32" Style="{StaticResource TicketHeadingText02}"/>
 
             <Border Style="{StaticResource BorderDotStyle}" Padding="20" Margin="0,40,0,0">
                 <VerticalStackLayout Spacing="5">
-                    <Label>
+                    <Label SemanticProperties.HeadingLevel="Level2">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span FontSize="14">Ticket #</Span>
@@ -63,7 +63,7 @@
                     </Label>
                 </VerticalStackLayout>
             </Border>
-            <Label HorizontalOptions="Center" Margin="0,50,0,0" Text="Pagamento Aprovado" Style="{StaticResource SuccessText}"/>
+            <Label SemanticProperties.HeadingLevel="Level2" HorizontalOptions="Center" Margin="0,50,0,0" Text="Pagamento Aprovado" Style="{StaticResource SuccessText}"/>
             <Label HorizontalOptions="Center" Margin="0,50,0,0" Text="Tolerância" Style="{StaticResource ToleranceText}"/>
             <Label HorizontalOptions="Center" Margin="0,30,0,0" Text="{Binding Tolerance, StringFormat='{0} min'}" Style="{StaticResource MaxTimeText}"/>
             <Label HorizontalOptions="Center">
@@ -71,7 +71,7 @@
                     <FormattedString>
                         <Span Text="Até " Style="{StaticResource SecondaryText}"/>
                         <Span Text="{Binding Ticket.DateTolerance, StringFormat='{0:HH:mm}'}" Style="{StaticResource SecondaryText}"/>
-                        <Span Text="min" Style="{StaticResource SecondaryText}"/>
+                        <Span Text=" min" Style="{StaticResource SecondaryText}"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

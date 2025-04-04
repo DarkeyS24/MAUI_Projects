@@ -13,7 +13,7 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <Grid RowDefinitions="{OnIdiom Tablet='100,*', Default='80,*'}" Padding="20">
-            <Label Grid.Row="0">
+            <Label SemanticProperties.HeadingLevel="Level1" Grid.Row="0">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Style="{StaticResource TicketHeadingText}" Text="Tickets&#x0a;"></Span>
@@ -26,7 +26,7 @@
                     <DataTemplate>
                         <Border Style="{StaticResource BorderDotStyle}" Padding="20" Margin="0,0,0,20">
                             <VerticalStackLayout Spacing="5">
-                                <Label>
+                                <Label SemanticProperties.HeadingLevel="Level2">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span FontSize="14">Ticket #</Span>

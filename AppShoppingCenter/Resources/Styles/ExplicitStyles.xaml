@@ -29,7 +29,7 @@
     </Style>
     
     <Style TargetType="Label" x:Key="CinemaDetailText">
-        <Setter Property="TextColor" Value="#404040"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light='#404040', Dark={StaticResource Gray300}}"/>
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
@@ -45,7 +45,7 @@
     </Style>
     
     <Style TargetType="Label" x:Key="TicketHeadingText" BasedOn="{StaticResource HeadingBase}">
-        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
         <Setter Property="FontSize" Value="{OnIdiom Tablet=38, Default=14}"/>
     </Style>
 
@@ -56,19 +56,20 @@
     </Style>
 
     <Style TargetType="Border" x:Key="BorderStyle">
-        <Setter Property="Stroke" Value="Black"/>
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}"/>
         <Setter Property="StrokeShape" Value="RoundRectangle 5"/>
         <Setter Property="StrokeThickness" Value="1"/>
     </Style>
 
     <Style TargetType="Border" x:Key="BorderDotStyle">
-        <Setter Property="Stroke" Value="Black"/>
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}"/>
         <Setter Property="StrokeDashArray" Value="5,5"/>
         <Setter Property="StrokeThickness" Value="1"/>
     </Style>
 
     <Style TargetType="Button" x:Key="ButtonStyle">
         <Setter Property="FontSize" Value="16"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="BackgroundColor" Value="#F86237"/>
         <Setter Property="HeightRequest" Value="50"/>
@@ -78,11 +79,11 @@
     <Style TargetType="Label" x:Key="SuccessText">
         <Setter Property="TextColor" Value="#1BAB42"/>
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
-        <Setter Property="FontSize" Value="{OnIdiom Tablet=32, Phone=24, Default=24}"/>
+        <Setter Property="FontSize" Value="{OnIdiom Tablet=36, Phone=24, Default=24}"/>
     </Style>
 
     <Style TargetType="Label" x:Key="ToleranceText">
-        <Setter Property="TextColor" Value="Black"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Light=Black, Dark=White}"/>
         <Setter Property="FontFamily" Value="OpenSansRegular"/>
         <Setter Property="FontSize" Value="{OnIdiom Tablet=28, Default=20}"/>
     </Style>

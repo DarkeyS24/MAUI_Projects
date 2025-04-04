@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
     <ScrollView>
         <StackLayout Padding="20">
-            <Label>
+            <Label SemanticProperties.HeadingLevel="Level1">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Style="{StaticResource TicketHeadingText}" Text="Pague seu&#x0a;"></Span>
@@ -20,15 +20,17 @@
             </Label>
             <Border Style="{StaticResource BorderStyle}" Margin="0,50,0,0">
                 <StackLayout Orientation="Horizontal" Padding="5">
-                    <Entry Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" VerticalOptions="Center" x:Name="entryTicket" TextChanged="CursorFix" HorizontalOptions="FillAndExpand" Placeholder="Escanear ticket" Text="{Binding TicketNumber}">
+                    <Entry SemanticProperties.Description="O numero do ticket é formado por 12 dígitos" Margin="{OnIdiom Default=0, Phone='10,0', Tablet='10,0'}" PlaceholderColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" x:Name="entryTicket" TextChanged="CursorFix" HorizontalOptions="FillAndExpand" SemanticProperties.Hint="{OnIdiom Default='Digite/Escaneie o ticket', Desktop='Digite o numero do seu ticket'}" Placeholder="{OnIdiom Default='Digite/Escaneie o ticket', Desktop='Digite o numero do seu ticket'}" Text="{Binding TicketNumber}">
                         <Entry.Behaviors>
                             <toolkit:EventToCommandBehavior EventName="TextChanged" Command="{Binding CheckTicketNumberCommand}" CommandParameter="{x:Reference entryTicket}"/>
                             <toolkit:MaskedBehavior Mask="000 000 000 000" UnmaskedCharacter="0"/>
                         </Entry.Behaviors>
                     </Entry>
-                    <Image 
+                    <Image
+                        SemanticProperties.Hint="Botão de escanear"
+                        SemanticProperties.Description="Leva a tela de escaneamento do ticket utilizando a camera ou webcam"
                 Margin="0,0,10,0"
-                Source="camera.png"
+                Source="{AppThemeBinding Light='camera.png', Dark='camera_light.png'}"
                 VerticalOptions="Center">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ScanCommand}"/>
@@ -36,7 +38,7 @@
                     </Image>
                 </StackLayout>
             </Border>
-            <Button Style="{StaticResource ButtonStyle}" VerticalOptions="EndAndExpand" Margin="0,0,0,30" Text="Tickets pagos" Command="{Binding ListCommand}"/>
+            <Button SemanticProperties.Hint="Botão que navega para a tela com a lista de todos os tickets já pagos" Style="{StaticResource ButtonStyle}" VerticalOptions="EndAndExpand" Margin="0,0,0,30" Text="Tickets pagos" Command="{Binding ListCommand}"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -12,12 +12,13 @@
     
     <Grid>
         <Image 
+            SemanticProperties.Hint="{Binding Movie.Title, StringFormat='Capa do filme: {0}'}"
             Source="{Binding Movie.Cover}"
             VerticalOptions="Start"
             HorizontalOptions="Center" 
             Aspect="AspectFill"/>
 
-        <media:MediaElement x:Name="player" IsVisible="False" ShouldLoopPlayback="True" Source="{Binding Movie.Trailer}" VerticalOptions="Start" HeightRequest="{OnIdiom Tablet=500, Phone=320}" ShouldShowPlaybackControls="False"/>
+        <media:MediaElement SemanticProperties.Description="Player onde é reproduzido o trailer do filme" x:Name="player" IsVisible="False" ShouldLoopPlayback="True" Source="{Binding Movie.Trailer}" VerticalOptions="Start" HeightRequest="{OnIdiom Tablet=510, Phone=320}" ShouldShowPlaybackControls="False"/>
 
         <Image x:Name="playPauseBtn" Source="play.png" VerticalOptions="Start" WidthRequest="50"  HorizontalOptions="Center" Margin="{OnIdiom Tablet='0,230,0,0', Phone='0,110,0,0'}">
             <Image.GestureRecognizers>
@@ -25,7 +26,7 @@
             </Image.GestureRecognizers>
         </Image>
         
-        <Image Source="close.png" VerticalOptions="Start" WidthRequest="{OnIdiom Tablet=35, Phone=29}"  HorizontalOptions="Start" Margin="{OnIdiom Tablet=25, Phone=20}">
+        <Image SemanticProperties.Hint="Botão de fechar" Source="close.png" VerticalOptions="Start" WidthRequest="{OnIdiom Tablet=35, Phone=29}"  HorizontalOptions="Start" Margin="{OnIdiom Tablet=25, Phone=20}">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding TapCloseDetailPageCommand}" CommandParameter="{x:Reference player}"/>
             </Image.GestureRecognizers>
@@ -34,13 +35,14 @@
         <Border Background="#AAFFFFFF" StrokeShape="RoundRectangle 30" WidthRequest="{OnIdiom Tablet=130, Phone=82}" HeightRequest="{OnIdiom Tablet=50, Phone=28}" BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="End" Margin="15">
             <HorizontalStackLayout  Spacing="5" Padding="10" HorizontalOptions="Center">
                 <Image Source="clock.png" WidthRequest="{OnIdiom Tablet=30, Phone=19}"/>
-                <Label Text="{Binding Movie.Duration}" Style="{StaticResource CinemaDurationText}"/>
+                <Label SemanticProperties.Hint="{Binding Movie.Duration, StringFormat='Duração do filme: {0:hh} horas e {0:mm} minutos'}" Text="{Binding Movie.Duration}" Style="{StaticResource CinemaDurationText}"/>
             </HorizontalStackLayout>
         </Border>
 
-        <Border x:Name="movieBorder" StrokeThickness="0" BackgroundColor="White" StrokeShape="RoundRectangle 30,30,0,0" Padding="50" Margin="{OnIdiom Tablet='0,500,0,0', Phone='0,250,0,0'}">
+        <Border x:Name="movieBorder" StrokeThickness="0" BackgroundColor="{AppThemeBinding Light=White, Dark={StaticResource Gray900}}" StrokeShape="RoundRectangle 30,30,0,0" Padding="50" Margin="{OnIdiom Tablet='0,500,0,0', Phone='0,250,0,0'}">
             <VerticalStackLayout>
                 <Label 
+                    SemanticProperties.HeadingLevel="Level1"
          Text="{Binding Movie.Title}"
          VerticalOptions="Center" 
          HorizontalOptions="Center" 

@@ -31,7 +31,7 @@ namespace AppShoppingCenter.ViewModels.Tickets
         private async void CopyPIXCode()
         {
             await Clipboard.Default.SetTextAsync(PIXCode);
-            await Task.Delay(3000);
+            await Task.Delay(30000);
 
             var storage = App.Current.Handler.MauiContext.Services.GetService<TicketPreferenceStorage>();
             storage.Save(Ticket);
