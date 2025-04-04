@@ -16,20 +16,20 @@
                     <TapGestureRecognizer Command="{Binding TapToBackCommand}"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Border BackgroundColor="White" StrokeShape="RoundRectangle 30,30,0,0" StrokeThickness="0" Margin="0,210,0,0">
+            <Border BackgroundColor="{AppThemeBinding Light='White', Dark='Black'}" StrokeShape="RoundRectangle 30,30,0,0" StrokeThickness="0" Margin="0,210,0,0">
                 <Grid Padding="60" ColumnDefinitions="1*,1*,5*" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto">
                     <Image Source="{Binding Establishment.Logo}" Grid.ColumnSpan="2" Margin="10,0" VerticalOptions="Center"/>
                     <Label Text="{Binding Establishment.Name}" Margin="50,0,0,0" VerticalOptions="Center" Grid.Column="2" Style="{StaticResource PrimaryText}"/>
                     <Label Text="{Binding Establishment.Description}" Margin="0,40" Grid.Row="1" Grid.ColumnSpan="3"  Style="{StaticResource SecondaryText}"/>
                     
                     <!-- Inicio Localização -->
-                    <Image Source="pin.png" Grid.Row="2" Grid.RowSpan="2" WidthRequest="21"/>
+                    <Image Source="{AppThemeBinding Light='pin.png', Dark='pin_light.png'}" Grid.Row="2" Grid.RowSpan="2" WidthRequest="21"/>
                     <Label Text="Localização" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource HeadingText}"/>
                     <Label Text="{Binding Establishment.Localization}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource DetailText}"/>
                     <!-- Fim Localização -->
                     
                     <!-- Inicio Telefone -->
-                    <Image Source="phone.png" VerticalOptions="End" Grid.Row="4" Grid.RowSpan="2" WidthRequest="31"/>
+                    <Image  Source="{AppThemeBinding Light='phone.png', Dark='phone_light.png'}" VerticalOptions="End" Grid.Row="4" Grid.RowSpan="2" WidthRequest="31"/>
                     <Label Text="Telefone" Margin="0,40,0,0" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource HeadingText}"/>
                     <Label Text="{Binding Establishment.Phone}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource DetailText}"/>
                     <!-- Fim Telefone -->                

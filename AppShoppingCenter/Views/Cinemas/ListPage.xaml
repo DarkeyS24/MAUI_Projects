@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
     
     <Grid RowDefinitions="*">
-        <Image Source="cinemafundo.jpg" Aspect="AspectFill" WidthRequest="{OnIdiom Tablet=900, Phone=450}" VerticalOptions="Start"/>
+        <Image Source="{AppThemeBinding Light='cinemafundo.jpg', Dark='cinemafundo_dark.jpg'}" Aspect="AspectFill" WidthRequest="{OnIdiom Tablet=900, Phone=450}" VerticalOptions="Start"/>
 
         <CarouselView Grid.Row="1" ItemsSource="{Binding Movies}" PeekAreaInsets="20">
             <CarouselView.ItemsLayout>
@@ -26,7 +26,7 @@
                             <Image Source="{Binding Cover}" WidthRequest="{OnIdiom Tablet=600, Phone=300}" HeightRequest="{OnIdiom Tablet=600, Phone=300}"/>
                         </Border>
                         <HorizontalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center" >
-                            <Image Source="clock.png" WidthRequest="{OnIdiom Tablet=30, Phone=19}"/>
+                            <Image Source="{AppThemeBinding Light='clock.png', Dark='clock_light.png'}" WidthRequest="{OnIdiom Tablet=30, Phone=19}"/>
                             <Label Text="{Binding Duration}" FontSize="{OnIdiom Tablet=20, Phone=14}"/>
                         </HorizontalStackLayout>
                         <Label Text="{Binding Title}" FontSize="{OnIdiom Tablet=20, Phone=14}" HorizontalTextAlignment="Center"  HorizontalOptions="Center" Grid.Row="2" Style="{StaticResource PrimaryText}"/>
