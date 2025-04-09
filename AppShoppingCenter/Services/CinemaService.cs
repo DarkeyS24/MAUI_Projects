@@ -25,7 +25,7 @@ namespace AppShoppingCenter.Services
                 {
                     Id = 1,
                     Title = "Animais fantásticos\r\nO segredo de Dumbledore",
-                    Description = "O professor Alvo Dumbledore (Jude Law) sabe que o poderoso mago das trevas Gellert Grindelwald (Mads Mikkelsen) está se movimentando para assumir o controle do mundo mágico. Incapaz de detê-lo sozinho, ele pede ao magizoologista Newt Scamander (Eddie Redmayne) para liderar uma intrépida equipe de b",
+                    Description = "O professor Alvo Dumbledore (Jude Law) sabe que o poderoso mago das trevas Gellert Grindelwald (Mads Mikkelsen) está se movimentando para assumir o controle do mundo mágico. Incapaz de detê-lo sozinho, ele pede ao magizoologista Newt Scamander (Eddie Redmayne) para liderar uma intrépida equipe de...",
                     Duration = new TimeOnly(2, 23,0),
 
                     Cover = "https://m.media-amazon.com/images/I/51WaxgXXlEL.jpg",
