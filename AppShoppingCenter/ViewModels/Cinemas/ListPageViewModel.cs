@@ -26,7 +26,6 @@ namespace AppShoppingCenter.ViewModels.Cinemas
         {
             var param = new Dictionary<string, object>
             {
-
                 { "movie", movie}
             };
             Shell.Current.GoToAsync("detail", param);
