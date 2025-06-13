@@ -1,6 +1,5 @@
-using System.Text;
+using AppTask.Database.Repositories;
 using AppTask.Models;
-using AppTask.Repositories;
 
 namespace AppTask.Views;
 
@@ -28,7 +27,7 @@ public partial class AddEditTaskPage : ContentPage
     {
         entry_TaskName.Text = _task.Name;
         editor_TaskDesc.Text = _task.Description;
-        datePicker_TaskDate.Date = _task.PrevisionDate;
+        datePicker_TaskDate.Date = _task.PrevisionDate.Date;
     }
     private void CloseModal(object sender, EventArgs e)
     {
@@ -77,7 +76,7 @@ public partial class AddEditTaskPage : ContentPage
     }
     private void SaveDataOnDatabase()
     {
-        if (_task.Id == 0)
+        if (_task.Id == default(Guid))
         {
             repository.AddTask(_task);
         } else

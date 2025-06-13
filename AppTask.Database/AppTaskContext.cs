@@ -12,6 +12,7 @@ namespace AppTask.Database
     {
         public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<SubTaskModel> SubTasks { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
         public AppTaskContext()
         {

@@ -15,7 +15,7 @@ namespace AppTask
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new StartPage()));
+            return new Window(new LoginPage());
         }
 
         private void EntryNoBorder()

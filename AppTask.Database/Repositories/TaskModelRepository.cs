@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AppTask.Database;
-using AppTask.Models;
+﻿using AppTask.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AppTask.Repositories
+namespace AppTask.Database.Repositories
 {
-    class TaskModelRepository : ITaskModelRepository
+    public class TaskModelRepository : ITaskModelRepository
     {
         private AppTaskContext db;
         public TaskModelRepository()
@@ -17,12 +11,12 @@ namespace AppTask.Repositories
             db = new AppTaskContext();
         }
 
-        public IList<TaskModel> GetAllTasks()
+        public IList<TaskModel> GetAllTasks(Guid id)
         {
-            return db.Tasks.OrderByDescending(a=>a.PrevisionDate).ToList();
+            return db.Tasks.Where(t => t.UserId == id).OrderByDescending(a=>a.PrevisionDate.ToString()).ToList();
         }
 
-        public TaskModel GetTaskById(int taskId)
+        public TaskModel GetTaskById(Guid taskId)
         {
             return db.Tasks.Include(a => a.Sub_Tasks).SingleOrDefault(a => a.Id == taskId);
         }
@@ -44,9 +38,11 @@ namespace AppTask.Repositories
             task = GetTaskById(task.Id);
             foreach (var item in task.Sub_Tasks)
             {
-                db.SubTasks.Remove(item);
+                item.Deleted = DateTimeOffset.Now;
+                db.SubTasks.Update(item);
             }
-            db.Tasks.Remove(task);
+            task.Deleted = DateTimeOffset.Now;
+            db.Tasks.Update(task);
             db.SaveChanges();
         }
     }

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
+using AppTask.Database.Repositories;
 using AppTask.Models;
-using AppTask.Repositories;
 
 namespace AppTask.Views;
 
@@ -18,17 +18,17 @@ public partial class StartPage : ContentPage
 
     public void LoadData()
     {
-        if (repository.GetAllTasks() == null || repository.GetAllTasks().Count <= 0)
-        {
-            emptyLlb.IsVisible = true;
-            collectionViewTasks.ItemsSource = null;
-        }
-        else
-        {
-            _tasks = repository.GetAllTasks();
-            collectionViewTasks.ItemsSource = _tasks;
-            emptyLlb.IsVisible = false;
-        }
+        //if (repository.GetAllTasks() == null || repository.GetAllTasks().Count <= 0)
+        //{
+        //    emptyLlb.IsVisible = true;
+        //    collectionViewTasks.ItemsSource = null;
+        //}
+        //else
+        //{
+        //    _tasks = repository.GetAllTasks();
+        //    collectionViewTasks.ItemsSource = _tasks;
+        //    emptyLlb.IsVisible = false;
+        //}
     }
     private void OnButtonClickedToAdd(object sender, EventArgs e)
     {

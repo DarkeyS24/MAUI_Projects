@@ -9,7 +9,7 @@ namespace AppTask.Models
 {
     public class SubTaskModel : INotifyPropertyChanged
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
 
         public bool _isCompleted;
@@ -17,6 +17,8 @@ namespace AppTask.Models
             get { return _isCompleted; }
             set { _isCompleted = value; OnPropertyChanged("IsCompleted"); } 
         }
+
+        public DateTimeOffset Deleted { get; set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         private void OnPropertyChanged(string propName)
