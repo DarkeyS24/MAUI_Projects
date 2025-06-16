@@ -22,6 +22,7 @@ namespace AppTask.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             var folderPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData); // Localização da pasta local da aplicação
             var databaseName = "apptask.db"; //Nome do banco de dados
             var databasePath = Path.Combine(folderPath, databaseName); // Junção do caminho e o nome do banco de dados

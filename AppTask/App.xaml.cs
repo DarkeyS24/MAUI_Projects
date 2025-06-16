@@ -1,4 +1,5 @@
-﻿using AppTask.Views;
+﻿using AppTask.Libraries.Authentications;
+using AppTask.Views;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 using Microsoft.Maui.Platform;
 
@@ -6,16 +7,25 @@ namespace AppTask
 {
     public partial class App : Application
     {
-        public App()
+        private Page page;
+        public App(IServiceProvider serviceProvider)
         {
             EntryNoBorder();
             DatePickerNoBorder();
             InitializeComponent();
+            if (UserAuth.GetUserLogged() == null)
+            {
+                page = serviceProvider.GetRequiredService<LoginPage>();
+            }
+            else if (UserAuth.GetUserLogged() != null)
+            {
+                page = new NavigationPage(serviceProvider.GetRequiredService<StartPage>());
+            }
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new LoginPage());
+            return new Window(page);
         }
 
         private void EntryNoBorder()

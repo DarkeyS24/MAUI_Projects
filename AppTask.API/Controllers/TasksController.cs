@@ -49,11 +49,12 @@ namespace AppTask.API.Controllers
             return Ok(entity);
         }
         
-        [HttpDelete]
-        public IActionResult Delete(TaskModel entity)
+        [HttpDelete("{id}")]
+        public IActionResult Delete(Guid id)
         {
+            var entity = repository.GetTaskById(id);
             repository.DeleteTask(entity);
-            return Ok(entity);
+            return Ok();
         }
 
         [HttpPost("BatchPush")]

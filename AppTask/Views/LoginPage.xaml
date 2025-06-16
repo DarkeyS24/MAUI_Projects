@@ -3,10 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTask.Views.LoginPage"
              Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="15" Spacing="20" Margin="0,-50,0,0">
+        
+        <Image Source="logo.png" WidthRequest="250" Margin="0,0,0,40"/>
+        <Label Text="Welcome to the App Task" Style="{StaticResource Header}"/>
+        <Label Text="Login with your e-mail"/>
+        <Border StrokeShape="RoundRectangle 10">
+            <Entry x:Name="txtEmail" Placeholder="E-mail"/>
+        </Border>
+        <Label x:Name="lblEmailValidationMessage" IsVisible="False" TextColor="Red" Text="Invalid e-mail!"/>
+        <ActivityIndicator IsVisible="False" x:Name="AILoading" IsRunning="True"/>
+        <Button x:Name="nextBtn" Text="Next" Clicked="OnClickToNextAction"/>
+
+        <VerticalStackLayout x:Name="step2" IsVisible="False" Spacing="20">
+            <Label Text="We send you an email, access your inbox and type the &#x0a;code on the field below:"/>
+            <Border StrokeShape="RoundRectangle 10">
+                <Entry Keyboard="Numeric" x:Name="txtAccesToken" Placeholder="Access token" MaxLength="4"/>
+            </Border>
+            <Label x:Name="lblTokenValidationMessage" IsVisible="False" TextColor="Red" Text="Invalid access token!"/>
+            <ActivityIndicator IsVisible="False" x:Name="AILoadingAT" IsRunning="True"/>
+            <Button Text="Access" Clicked="OnClickToAccessAction"/>
+        </VerticalStackLayout>
+    </StackLayout>
 </ContentPage>

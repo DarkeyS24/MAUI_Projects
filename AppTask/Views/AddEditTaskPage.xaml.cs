@@ -1,5 +1,8 @@
+using System.Threading.Tasks;
 using AppTask.Database.Repositories;
+using AppTask.Libraries.Authentications;
 using AppTask.Models;
+using AppTask.Services;
 
 namespace AppTask.Views;
 
@@ -7,17 +10,17 @@ public partial class AddEditTaskPage : ContentPage
 {
     private ITaskModelRepository repository;
     private TaskModel _task;
-	public AddEditTaskPage()
+    private ITaskService service;
+    public AddEditTaskPage(ITaskModelRepository repository, ITaskService service)
 	{
 		InitializeComponent();
         _task = new TaskModel();
+        this.service = service;
         BindableLayout.SetItemsSource(bindableLayouStep, _task.Sub_Tasks);
-        repository = new TaskModelRepository();
+        this.repository = repository;
 	}
-    public AddEditTaskPage(TaskModel task)
+    public void SetUpdatePage(TaskModel task)
 	{
-		InitializeComponent();
-        repository = new TaskModelRepository();
         _task = task;
         FillFields();
         BindableLayout.SetItemsSource(bindableLayouStep, _task.Sub_Tasks);
@@ -78,10 +81,21 @@ public partial class AddEditTaskPage : ContentPage
     {
         if (_task.Id == default(Guid))
         {
+            _task.UserId = UserAuth.GetUserLogged().Id;
             repository.AddTask(_task);
+            NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
+            if (networkAccess == NetworkAccess.Internet)
+            {
+                service.Add(_task);
+            }
         } else
         {
             repository.UpdateTask(_task);
+            NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
+            if (networkAccess == NetworkAccess.Internet)
+            {
+                service.Update(_task);
+            }
         }
     }
     private void UpdateListOnStartPage()

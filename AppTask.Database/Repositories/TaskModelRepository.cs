@@ -24,11 +24,19 @@ namespace AppTask.Database.Repositories
         public void AddTask(TaskModel task)
         {
             db.Tasks.Add(task); 
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
         }
 
         public void UpdateTask(TaskModel task)
         {
+            db.ChangeTracker.Clear();
             db.Tasks.Update(task);
             db.SaveChanges();
         }
@@ -38,6 +46,7 @@ namespace AppTask.Database.Repositories
             task = GetTaskById(task.Id);
             foreach (var item in task.Sub_Tasks)
             {
+                db.ChangeTracker.Clear();
                 item.Deleted = DateTimeOffset.Now;
                 db.SubTasks.Update(item);
             }

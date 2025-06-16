@@ -57,11 +57,11 @@ namespace AppTask.API.Controllers
 
             if (newUser.AcccessToken == user.AcccessToken)
             {
-                var tokenLimitHours = user.AccessTokenCreated.Add(Config.LimitAccessTokenCreated);
+                var tokenLimitHours = newUser.AccessTokenCreated.Add(Config.LimitAccessTokenCreated);
                 var serverHours = DateTimeOffset.Now;
                 if (serverHours <= tokenLimitHours)
                 {
-                    return Ok("Access token is valid");
+                    return Ok(newUser);
                 }
             }
             return BadRequest("Invalid access token!");

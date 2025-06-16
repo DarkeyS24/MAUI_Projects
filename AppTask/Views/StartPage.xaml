@@ -8,8 +8,17 @@
     <ContentPage.Resources>
         <converter:BoolToTextDecorationStrikeThroug x:Key="BoolToTextDecorationStrikeThroug"/>
     </ContentPage.Resources>
-    <Grid RowDefinitions="70, *">
-        <Border Margin="20,20,20,0" 
+    <Grid RowDefinitions="55, 70, *">
+
+        <!-- Inicio - Terceira Linha -->
+        <HorizontalStackLayout Spacing="10" Grid.Row="0" Padding="0,10,40,0" HorizontalOptions="End">
+            <Label x:Name="UserEmail" FontSize="16" FontAttributes="Bold" VerticalOptions="Center"/>
+            <Button VerticalOptions="Center" Padding="5,0,5,0" Text="Log out" BackgroundColor="White"  FontAttributes="Italic" TextColor="Black" ImageSource="logout.png" Clicked="OnClickedToLogOut"/>
+        </HorizontalStackLayout>
+        <!-- Final - Terceira Linha -->
+
+        <Border Margin="20,10,20,0" 
+                Grid.Row="1"
                 HeightRequest="50" 
                 StrokeShape="RoundRectangle 25"
                 BackgroundColor="#F7F7F7">
@@ -22,7 +31,7 @@
             </StackLayout>
         </Border>
         <!-- Inicio - Segunda Linha -->
-        <CollectionView x:Name="collectionViewTasks" Grid.Row="1" Margin="0,15,0,0">
+        <CollectionView x:Name="collectionViewTasks" Grid.Row="2" Margin="0,15,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="70,*,70" Padding="10,5">
@@ -50,8 +59,10 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
         
-        <Label x:Name="emptyLlb" Text="O que você deseja fazer" Grid.Row="1" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Gray300}"/>
-        <Button Text="+ Adicionar Tarefa" Grid.Row="1" FontSize="20" Clicked="OnButtonClickedToAdd" Margin="15" HorizontalOptions="Center" VerticalOptions="End"/>
+        <Label x:Name="emptyLlb" Text="O que você deseja fazer" Grid.Row="2" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Gray300}"/>
+        <Button Text="+ Adicionar Tarefa" Grid.Row="2" FontSize="20" Clicked="OnButtonClickedToAdd" Margin="15" HorizontalOptions="End" VerticalOptions="End"/>
         <!-- Final - Segunda Linha -->
+
+        
     </Grid>
 </ContentPage>
