@@ -28,6 +28,7 @@ namespace AppTask.API.Controllers
             {
                 user = new UserModel() 
                 {
+                    Id = Guid.NewGuid(),
                     Email = email,
                     AcccessToken = "".GenerateHash(4),
                     AccessTokenCreated = DateTimeOffset.Now,

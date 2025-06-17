@@ -57,8 +57,8 @@ namespace AppTask.API.Controllers
             return Ok();
         }
 
-        [HttpPost("BatchPush")]
-        public IActionResult BatchPush(List<TaskModel> tasks)
+        [HttpPost("BatchPush/{userId}")]
+        public IActionResult BatchPush(Guid userId, [FromBody]List<TaskModel> tasks)
         {
             foreach (var task in tasks)
             {
@@ -75,7 +75,7 @@ namespace AppTask.API.Controllers
                     }
                 }
             }
-            return Ok();
+            return Ok(repository.GetAllTasks(userId));
         }
     }
 }

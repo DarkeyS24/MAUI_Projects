@@ -12,8 +12,9 @@
 
         <!-- Inicio - Terceira Linha -->
         <HorizontalStackLayout Spacing="10" Grid.Row="0" Padding="0,10,40,0" HorizontalOptions="End">
-            <Label x:Name="UserEmail" FontSize="16" FontAttributes="Bold" VerticalOptions="Center"/>
-            <Button VerticalOptions="Center" Padding="5,0,5,0" Text="Log out" BackgroundColor="White"  FontAttributes="Italic" TextColor="Black" ImageSource="logout.png" Clicked="OnClickedToLogOut"/>
+            <Label x:Name="UserEmail" FontSize="14" FontAttributes="Bold" VerticalOptions="Center"/>
+            <Button Style="{StaticResource ButtonWhite}" Clicked="OnButtonClickedToSync" MinimumHeightRequest="10" HeightRequest="20" ImageSource="syncro.png" Text="{OnPlatform Default='Sincronizar', Android='Sync', iOS='Sync'}"/>
+            <Button Style="{StaticResource ButtonWhite}" Text="Log out" ImageSource="logout.png" Clicked="OnClickedToLogOut"/>
         </HorizontalStackLayout>
         <!-- Final - Terceira Linha -->
 

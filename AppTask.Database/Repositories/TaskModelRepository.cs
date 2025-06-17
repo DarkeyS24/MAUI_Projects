@@ -13,7 +13,7 @@ namespace AppTask.Database.Repositories
 
         public IList<TaskModel> GetAllTasks(Guid id)
         {
-            return db.Tasks.Where(t => t.UserId == id).OrderByDescending(a=>a.PrevisionDate.ToString()).ToList();
+            return db.Tasks.Where(t => t.UserId == id).Include(t => t.Sub_Tasks).OrderByDescending(a=>a.PrevisionDate.ToString()).ToList();
         }
 
         public TaskModel GetTaskById(Guid taskId)
@@ -50,8 +50,29 @@ namespace AppTask.Database.Repositories
                 item.Deleted = DateTimeOffset.Now;
                 db.SubTasks.Update(item);
             }
+            task.Updated = DateTimeOffset.Now;
             task.Deleted = DateTimeOffset.Now;
             db.Tasks.Update(task);
+            db.SaveChanges();
+        }
+
+        public void AddTasks(List<TaskModel> tasks)
+        {
+            db.AddRange(tasks);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        public void UpdateTasks(List<TaskModel> tasks)
+        {
+            db.ChangeTracker.Clear();
+            db.UpdateRange(tasks);
             db.SaveChanges();
         }
     }

@@ -10,14 +10,12 @@ public partial class LoginPage : ContentPage
 {
 	private IUserSevice _userService;
 	private IUserModelRepository _repository;
-    private StartPage _startPage;
 
-    public LoginPage(IUserSevice userService, IUserModelRepository repository, StartPage startPage)
+    public LoginPage(IUserSevice userService, IUserModelRepository repository)
     {
         InitializeComponent();
         _userService = userService;
         _repository = repository;
-        _startPage = startPage;
     }
 
     private async void OnClickToNextAction(object sender, EventArgs e)
@@ -114,6 +112,7 @@ public partial class LoginPage : ContentPage
             UserAuth.SetUserLogged(userAPI);
 
             AddOrUpdateUserInDatabase(userAPI);
+            var _startPage = Handler.MauiContext.Services.GetService<StartPage>();
             App.Current.MainPage = new NavigationPage(_startPage);
         }
         catch (HttpRequestException)

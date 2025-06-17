@@ -17,7 +17,6 @@ namespace AppTask.Database.Repositories
 
         public void AddUser(UserModel user)
         {
-            user.Id = Guid.NewGuid(); // Ensure a new GUID is generated for the user
             _context.Users.Add(user);
             _context.SaveChanges();
         }

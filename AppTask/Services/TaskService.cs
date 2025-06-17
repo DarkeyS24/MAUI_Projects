@@ -35,9 +35,17 @@ namespace AppTask.Services
         {
             await http.DeleteAsync($"Tasks/{id}");
         }
-        public async Task BatchPush(List<TaskModel> tasks)
+        public async Task<List<TaskModel>> BatchPush(Guid userId, List<TaskModel> tasks)
         {
-            await http.PostAsJsonAsync($"Tasks/BatchPush", tasks);
+            var response = await http.PostAsJsonAsync($"Tasks/BatchPush/{userId}", tasks);
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<TaskModel>>();
+            }
+            else
+            {
+                throw new Exception(response.ReasonPhrase);
+            }
         }
     }
 }

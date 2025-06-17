@@ -54,7 +54,6 @@ public partial class AddEditTaskPage : ContentPage
         _task.PrevisionDate = _task.PrevisionDate.AddHours(23);
         _task.PrevisionDate = _task.PrevisionDate.AddMinutes(59);
         _task.PrevisionDate = _task.PrevisionDate.AddSeconds(59);
-        _task.Created = DateTime.Now;
         _task.IsCompleted = false;
     }
     private bool DataValidation()
@@ -81,20 +80,42 @@ public partial class AddEditTaskPage : ContentPage
     {
         if (_task.Id == default(Guid))
         {
+            _task.Id = Guid.NewGuid();
             _task.UserId = UserAuth.GetUserLogged().Id;
+            _task.Created = DateTimeOffset.Now;
+            _task.Updated = DateTimeOffset.Now;
+
+            foreach (var step in _task.Sub_Tasks)
+            {
+                step.Id = Guid.NewGuid();
+            }
+
             repository.AddTask(_task);
             NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
             if (networkAccess == NetworkAccess.Internet)
             {
-                service.Add(_task);
+                try{ 
+                    service.Add(_task);
+                }catch (Exception ex)
+                {
+                    DisplayAlert("Error", $"Error saving the task: {ex.Message}", "OK");
+                }
             }
         } else
         {
+            _task.Updated = DateTimeOffset.Now;
             repository.UpdateTask(_task);
             NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
             if (networkAccess == NetworkAccess.Internet)
             {
-                service.Update(_task);
+                try
+                {
+                    service.Update(_task);
+                }
+                catch (Exception ex)
+                {
+                    DisplayAlert("Error", $"Error updating the task: {ex.Message}", "OK");
+                }
             }
         }
     }

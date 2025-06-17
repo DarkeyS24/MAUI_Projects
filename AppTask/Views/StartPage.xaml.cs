@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using AppTask.Database.Repositories;
 using AppTask.Libraries.Authentications;
+using AppTask.Libraries.Synchronizations;
 using AppTask.Models;
 using AppTask.Services;
 
@@ -19,8 +20,8 @@ public partial class StartPage : ContentPage
         this.repository = repository;
         this.service = service;
         _tasks = [];
-        LoadData();
-        UserEmail.Text = UserAuth.GetUserLogged().Email;
+            LoadData();
+            UserEmail.Text = UserAuth.GetUserLogged().Email;
         this.AddEditTaskPage = addEditTaskPage;
     }
 
@@ -57,7 +58,14 @@ public partial class StartPage : ContentPage
             NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
             if (networkAccess == NetworkAccess.Internet)
             {
-                await service.DeleteTask(task.Id);
+                try
+                {
+                    await service.DeleteTask(task.Id);
+                }
+                catch (Exception ex)
+                {
+                    DisplayAlert("Error", $"Error during delete of the task: {ex.Message}", "OK");
+                }
             }
             LoadData();
         }
@@ -72,12 +80,21 @@ public partial class StartPage : ContentPage
             checkBox.IsChecked = !checkBox.IsChecked;
         }
         task.IsCompleted = checkBox.IsChecked;
+        task.Updated = DateTimeOffset.Now;
         repository.UpdateTask(task);
 
         NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
         if (networkAccess == NetworkAccess.Internet)
         {
-            service.Update(task);
+            try
+            {
+                service.Update(task);
+
+            }
+            catch (Exception ex)
+            {
+                DisplayAlert("Error", $"Error updating the task: {ex.Message}", "OK");
+            }
         }
     }
     private void OnTapToEdit(object sender, TappedEventArgs e)
@@ -100,5 +117,54 @@ public partial class StartPage : ContentPage
 
         var page = Handler.MauiContext.Services.GetService<LoginPage>();
         App.Current.MainPage = page;
+    }
+
+    private async void OnButtonClickedToSync(object sender, EventArgs e)
+    {
+        try {
+        var userId = UserAuth.GetUserLogged().Id;
+        var date = SyncData.GetLastSyncDate(); // This will retrieve the last sync date, if any.
+        List<TaskModel> localTasks = (date is null)? repository.GetAllTasks(userId).ToList() : repository.GetAllTasks(userId).Where(a => a.Updated >= date).ToList();
+
+        var serverTasks = await service.BatchPush(userId, localTasks); // This will push the local tasks to the server and retrieve the updated list of tasks from the server.
+
+        LocalDatabaseSynchronization(serverTasks); // This will synchronize the local database with the server data.
+
+        SyncData.SetLastSyncDate(DateTimeOffset.Now); // This will set the last sync date to now, indicating that a sync has occurred.
+
+        LoadData(); // Refresh the task list on the UI after synchronization.
+        }
+        catch (Exception ex)
+        {
+            DisplayAlert("Error", $"Error during synchronization: {ex.Message}", "OK");
+        }
+    }
+
+    private void LocalDatabaseSynchronization(List<TaskModel> serverTasks)
+    {
+        var userId = UserAuth.GetUserLogged().Id;
+        var localTasks = repository.GetAllTasks(userId);
+
+        var tasksToLocalAdd = new List<TaskModel>();
+        var tasksToLocalUpdate = new List<TaskModel>();
+
+        foreach ( var serverTask in serverTasks)
+        {
+            var task = localTasks.FirstOrDefault(a => a.Id == serverTask.Id);
+            if(task == null)
+            {
+                tasksToLocalAdd.Add(serverTask);
+            }
+            else
+            {
+                if (task.Updated < serverTask.Updated)
+                {
+                    tasksToLocalUpdate.Add(serverTask);
+                }
+            }
+        }
+
+        repository.AddTasks(tasksToLocalAdd);
+        repository.UpdateTasks(tasksToLocalUpdate);
     }
 }
